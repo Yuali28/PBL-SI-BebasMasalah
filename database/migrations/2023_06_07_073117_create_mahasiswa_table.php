@@ -25,7 +25,7 @@ return new class extends Migration
                                                 // removing this can minimize redudancy, inconsistency and space
                                                 // removing this may slightly increase server load (need to access users table for emails)
                                                 // however, server load can be minimized by storing current users' email on local storage (dunno about the security tho)
-            $table->string('telp', 13)->unique();
+            $table->char('telp', 13)->unique();
             $table->string('alamat', 50);
             $table->date('tanggal_lahir');
             $table->enum('agama', ['Buddha', 'Hindu', 'Islam', 'Katolik', 'Konghucu', 'Kristen']);
@@ -35,7 +35,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
 
     /**
      * Reverse the migrations.
