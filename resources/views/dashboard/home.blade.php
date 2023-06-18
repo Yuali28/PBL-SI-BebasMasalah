@@ -13,6 +13,7 @@
 @section('content')
     @if ($role == 0)
         {{-- Quick Profile -- START --}}
+        {{-- Profile quick info stack vertically on mobile --}}
         <div class="row pt-4">
             <div class="col-md">
                 <x-adminlte-profile-widget name="Sullivan Wazowski" desc="C030340420"
@@ -161,7 +162,7 @@
         {{-- Rincian Bebas Masalah -- END --}}
         {{-- Berita -- START --}}
         <div class="row px-1">
-            <div class="accordion mt-4" id="accordionNews">
+            <div class="accordion mt-4 w-100" id="accordionNews">
                 <div class="card">
                     <div class="card-header bg-primary" id="headingBerita">
                         <h2 class="mb-0">
@@ -182,7 +183,7 @@
                                         <img src="https://images.unsplash.com/photo-1685431965348-34ede108ef68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1010&q=80" class="card-img-top" alt="...">
                                         <div class="card-body">
                                         <span class="card-title text-link mb-3 text-dark text-capitalize font-weight-bold" href="#" style="font-size: 1.2rem">Ini merupakan judul berita atau pemberitahuan</span>
-                                        <p class="card-text text-justify text-dark" style="height: 8rem">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the...</p>
+                                        <p class="card-text text-justify text-wrap text-truncate text-dark" style="height: 8rem">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the...</p>
                                         </div>
                                     </div>
                                 </a>
@@ -193,7 +194,7 @@
                                         <img src="https://images.unsplash.com/photo-1685431965348-34ede108ef68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1010&q=80" class="card-img-top" alt="...">
                                         <div class="card-body">
                                         <span class="card-title text-link mb-3 text-dark text-capitalize font-weight-bold" href="#" style="font-size: 1.2rem">Ini merupakan judul berita atau pemberitahuan</span>
-                                        <p class="card-text text-justify text-dark" style="height: 8rem">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the...</p>
+                                        <p class="card-text text-justify text-wrap text-truncate text-dark" style="height: 8rem">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the...</p>
                                         </div>
                                     </div>
                                 </a>
@@ -204,7 +205,7 @@
                                         <img src="https://images.unsplash.com/photo-1685431965348-34ede108ef68?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1010&q=80" class="card-img-top" alt="...">
                                         <div class="card-body">
                                         <span class="card-title text-link mb-3 text-dark text-capitalize font-weight-bold" href="#" style="font-size: 1.2rem">Ini merupakan judul berita atau pemberitahuan</span>
-                                        <p class="card-text text-justify text-dark" style="height: 8rem">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the...</p>
+                                        <p class="card-text text-justify text-wrap text-truncate text-dark" style="height: 8rem">A wonderful serenity has taken possession of my entire soul, like these sweet mornings of spring which I enjoy with my whole heart. I am alone, and feel the charm of existence in this spot, which was created for the bliss of souls like mine. I am so happy, my dear friend, so absorbed in the...</p>
                                         </div>
                                     </div>
                                 </a>
@@ -217,6 +218,17 @@
         </div>
         {{-- Berita -- END --}}
     @elseif ($role == 1)
-        <h6>welcome kajur</h6>
+        <h6>welcome ketua jurusan</h6>
+    @elseif ($role == 2)
+        <h6>welcome ketua prodi</h6>
+    @elseif ($role == 3)
+        <h6>welcome admin TA</h6>
+    @elseif ($role == 4)
+        <h6>welcome staff keuangan</h6>
+    @elseif ($role == 5)
+        <h6>welcome staff perpustakaan</h6>
+    @else
+        {{-- terminate login session --}}
+        {{ $request->session()->flush(); }}
     @endif
 @stop

@@ -194,7 +194,7 @@ return [
     'classes_content' => '',
     'classes_sidebar' => 'sidebar-dark-primary elevation-4',
     'classes_sidebar_nav' => '',
-    'classes_topnav' => 'navbar-white navbar-light',
+    'classes_topnav' => 'navbar-dark navbar-light',
     'classes_topnav_nav' => 'navbar-expand',
     'classes_topnav_container' => 'container',
 
@@ -297,19 +297,24 @@ return [
         ],
         // Sidebar items:
         [
-            'text' => 'Dashboard',
-            'url'  => 'dashboard',
+            'text' => 'Home',
+            'url'  => 'home',
             'icon' => 'fas fa-fw fa-home'
         ],
         [
-            'text' => 'Berita',
-            'url'  => 'dashboard/#news',
-            'icon' => 'fas fa-fw fa-comment'
+            'text' => 'Dashboard',
+            'url'  => 'dashboard',
+            'icon' => 'fas fa-fw fa-tachometer-alt'
         ],
         [
             'text' => 'Profile',
             'url'  => 'profile',
             'icon' => 'fas fa-fw fa-user',
+        ],
+        [
+            'text' => 'Log out',
+            'url'  => 'logout',
+            'icon' => 'fas fa-fw fa-sign-out-alt'
         ],
     ],
 

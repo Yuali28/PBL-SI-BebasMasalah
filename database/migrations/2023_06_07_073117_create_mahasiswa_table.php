@@ -18,7 +18,7 @@ return new class extends Migration
             $table->char('nama', 50);
             $table->char('nim', 10)->unique();          // username
             // $table->string('password');
-            $table->tinyInteger('role')->default(0);    // 0 = Mahasiswa, 1 = Kajur, 2 = Prodi, 3 =  TA, 4 = Keuangan, 5 = Perpus
+            // $table->tinyInteger('role')->default(0);    // 0 = Mahasiswa, 1 = Kajur, 2 = Prodi, 3 =  TA, 4 = Keuangan, 5 = Perpus
             $table->year('angkatan');
             $table->char('kelas', 1);
             // $table->string('email')->unique();  // this can be removed if condition applies (acces emails from users' table)
