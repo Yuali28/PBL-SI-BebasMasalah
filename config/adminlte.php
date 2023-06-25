@@ -14,7 +14,7 @@ return [
     |
     */
 
-    'title' => 'SI Bebas Masalah',
+    'title' => 'SIBM',
     'title_prefix' => 'SIBM | ',
     'title_postfix' => '',
 
@@ -305,6 +305,11 @@ return [
             'text' => 'Dashboard',
             'url'  => 'dashboard',
             'icon' => 'fas fa-fw fa-tachometer-alt'
+        ],
+        [
+            'text' => 'Bebas Masalah',
+            'url' => 'dashboard/bebas-masalah',
+            'icon' => 'fas fa-fw fa-tasks',
         ],
         [
             'text' => 'Profile',

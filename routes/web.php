@@ -20,3 +20,12 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard.home');
 });
+
+Route::get('/dashboard/bebas-masalah', function () {
+    return view('dashboard.bebas-masalah');
+});
+
+// Auth
+Route::get('/login', [AuthController::class, 'getLogin'])->middleware('guest')->name('login');
+Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
