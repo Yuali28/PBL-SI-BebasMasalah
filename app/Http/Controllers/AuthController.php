@@ -6,7 +6,7 @@ use App\Models\User;
 use App\Models\Mahasiswa;
 use App\Models\Pegawai;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\User;
+// use Illuminate\Foundation\Auth\User;
 
 class AuthController extends Controller
 {
@@ -32,6 +32,9 @@ class AuthController extends Controller
         }
         return view('auth.register');
     }
+
+    public function postMahasiswa(Request $request){}
+    public function postPegawai(Request $request){}
 
     public function postUser(Request $request)
     {

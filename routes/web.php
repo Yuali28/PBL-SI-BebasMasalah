@@ -25,6 +25,11 @@ Route::get('/dashboard/bebas-masalah', function () {
     return view('dashboard.bebas-masalah');
 });
 
+// Dashboard
+Route::get('/dashboard/bm', function () {
+    return view('dashboard.bebasmasalah');
+});
+
 // Auth
 Route::get('/login', [AuthController::class, 'getLogin'])->middleware('guest')->name('login');
 Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');
