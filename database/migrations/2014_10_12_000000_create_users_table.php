@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('username');             // username mahasiswa == NIM, pegawai == NIK
                                                     // if we store same value in both of the respective tables, wouldn't it be redundant?
                                                     // we should choose either security or storage efficiency.
-                                                    $table->enum('jenis_kelamin', ['Laki-laki', 'Perempuan']);
                                                     // we could use fk, but dunno abt the speed.
             $table->string('email')->unique();
             $table->string('password');

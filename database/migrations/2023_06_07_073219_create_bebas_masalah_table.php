@@ -26,7 +26,7 @@ return new class extends Migration
             $table->dateTimeTz('update_note_keuangan');
 
             // TA
-            $table->boolean('status_TA');
+            $table->boolean('status_ta');
             $table->string('lembar_persetujuan', 100)->nullable();
             $table->string('lembar_pengesahan', 100)->nullable();
             $table->string('lembar_konsultasi_dospem_1', 100)->nullable();
