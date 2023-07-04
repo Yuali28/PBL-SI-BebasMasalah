@@ -5,25 +5,17 @@
     $nama = "Mike Wazowski"
 @endphp
 
-@section('title', 'Dashboard')
+@section('title', 'Profile')
 
 @section('content_header')
-    <h1 class="mb-1">Dashboard</h1>
+    <h1 class="mb-1">Data Diri</h1>
 @stop
 
 @section('content')
     @if ($role == 0)
-        @include('dashboard.home.mahasiswa')
-    @elseif ($role == 1)
-        <h6>welcome ketua jurusan</h6>
-    @elseif ($role == 2)
-        <h6>welcome ketua prodi</h6>
-    @elseif ($role == 3)
-        <h6>welcome admin TA</h6>
-    @elseif ($role == 4)
-        <h6>welcome staff keuangan</h6>
-    @elseif ($role == 5)
-        <h6>welcome staff perpustakaan</h6>
+        @include('dashboard.profile.mhs')
+    @elseif ($role > 0 && $role < 6)
+        @include('dashboard.profile.pgw')
     @else
         {{-- terminate login session --}}
         {{ $request->session()->flush(); }}

@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BebasMasalahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,22 +16,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Landing
 Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::get('/dashboard', function () {
-    return view('dashboard.home');
-});
-
-Route::get('/dashboard/bebas-masalah', function () {
-    return view('dashboard.bebas-masalah');
+    return view('landing');
 });
 
 // Dashboard
-Route::get('/dashboard/bm', function () {
-    return view('dashboard.bebasmasalah');
-});
+Route::get('/dashboard', [UserController::class, 'getHome'])->name('home');
+Route::get('/dashboard/bebas-masalah', [BebasMasalahController::class, 'getBebasMasalah'])->name('home');
+Route::get('/dashboard/user', [UserController::class, 'getUser'])->name('user');
+Route::get('/dashboard/profile', [UserController::class, 'getProfile'])->name('profile');
 
 // Auth
 Route::get('/login', [AuthController::class, 'getLogin'])->middleware('guest')->name('login');
