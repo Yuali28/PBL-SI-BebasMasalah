@@ -10,12 +10,15 @@ class ProgramStudi extends Model
 {
     use HasFactory;
 
+    protected $table = 'program_studi';
+
     protected $guarded = [
         'id'
     ];
 
     public function programstudi()
     {
-        return $this->belongsTo(Jurusan::class);
+        return $this->belongsTo(Jurusan::class, 'fk_prodi');
     }
+
 }

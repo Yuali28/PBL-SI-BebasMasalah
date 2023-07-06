@@ -10,6 +10,8 @@ class Pegawai extends Model
 {
     use HasFactory;
 
+    protected $table = 'dosen';
+
     protected $fillable = [
         'nama',
         'dosen',
@@ -27,6 +29,6 @@ class Pegawai extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'fk_pegawai');
     }
 }

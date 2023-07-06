@@ -9,7 +9,14 @@ class Jurusan extends Model
 {
     use HasFactory;
 
+    protected $table = 'jurusan';
+
     protected $guarded = [
         'id'
     ];
+
+    public function programstudi()
+    {
+        return $this->hasOne(ProgramStudi::class, 'fk_jurusan');
+    }
 }

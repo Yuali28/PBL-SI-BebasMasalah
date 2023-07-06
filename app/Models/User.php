@@ -54,12 +54,12 @@ class User extends Authenticatable
 
     public function pegawai()
     {
-        return $this->hasOne(Pegawai::class);
+        return $this->hasOne(Pegawai::class, 'fk_user');
     }
 
     public function mahasiswa()
     {
-        return $this->hasOne(Mahasiswa::class);
+        return $this->hasOne(Mahasiswa::class, 'fk_user');
     }
 
 }
