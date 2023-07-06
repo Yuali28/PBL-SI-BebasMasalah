@@ -34,12 +34,12 @@ class AuthController extends Controller
         if (auth()->attempt($credentials)) {
             // dd('asd');
             $request->session()->regenerate();
+            // Auth::loginUsingId(1);
             // dd(Auth::check());
             // dd($credentials);
             // dd(session());
             // dd(Auth::attempt());
             // dd(Auth::user());
-
             return redirect()->intended('/dashboard');
         }
 
