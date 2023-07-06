@@ -11,6 +11,14 @@ use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
+    // public function __construct()
+    // {
+    //     $this->middleware(function ($request, $next) {
+    //         $this->user = Auth::user();
+    //         return $next($request);
+    //     });
+    // }
+
     public function getLogin()
     {
         return view('auth.login');
@@ -19,14 +27,20 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         $credentials = $request->validate([
-            'username' => ['required'],
-            'password' => ['required'],
+            'username' => 'required',
+            'password' => 'required',
         ]);
 
-        if (Auth::attempt($credentials)) {
+        if (auth()->attempt($credentials)) {
+            // dd('asd');
             $request->session()->regenerate();
+            // dd(Auth::check());
+            // dd($credentials);
+            // dd(session());
+            // dd(Auth::attempt());
+            // dd(Auth::user());
 
-            return redirect()->intended('dashboard');
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([

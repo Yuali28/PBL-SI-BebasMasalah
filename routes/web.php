@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
@@ -23,6 +24,12 @@ Route::get('/', function () {
 
 // Dashboard
 Route::get('/dashboard', [UserController::class, 'getHome'])->name('home');
+// Route::get('/dashboard',function(){
+    // dd(Auth::check());
+    // dd(Auth::user());
+    // dd(auth()->user());
+//    return view('welcome');
+// });
 Route::get('/dashboard/bebas-masalah', [BebasMasalahController::class, 'getBebasMasalah'])->name('home');
 Route::get('/dashboard/user', [UserController::class, 'getUser'])->name('user');
 Route::get('/dashboard/profile', [UserController::class, 'getProfile'])->name('profile');

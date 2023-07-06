@@ -1,3 +1,13 @@
+{{-- @auth
+    Hello, {{ \Auth::user()->username }}
+@endauth
+
+@guest
+   Hello, guest.
+@endguest --}}
+
+{{-- @dd(Auth::user()) --}}
+{{-- {{ @dd(Auth::user()) }} --}}
 {{-- Quick Profile -- START --}}
         {{-- Profile quick info stack vertically on mobile --}}
         <div class="row">

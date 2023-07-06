@@ -14,6 +14,7 @@ class UserController extends Controller
 
     public function getHome(User $user)
     {
+        // dd(auth());
         return view('dashboard.home.switcher', [
             // 'user' => $user->where('id', auth()->user()->id)->first()
         ]);

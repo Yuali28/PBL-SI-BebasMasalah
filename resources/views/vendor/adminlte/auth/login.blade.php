@@ -24,12 +24,12 @@
         <span class="my-2 text-center">{{ __('adminlte::adminlte.login_message') }}</span>
     </div>
 
-    <form action="{{ $login_url }}" method="post">
+    <form action="/login" method="POST">
         @csrf
 
         {{-- Username field --}}
         <div class="input-group mb-3">
-            <input type="text" name="text" class="form-control @error('text') is-invalid @enderror"
+            <input type="text" name="username" class="form-control @error('text') is-invalid @enderror"
                    value="{{ old('username') }}" placeholder="{{ __('Username') }}" autofocus>
 
             <div class="input-group-append">

@@ -1,3 +1,5 @@
+{{-- @dd(Auth::user()) --}}
+
 @extends('adminlte::page')
 
 @php
