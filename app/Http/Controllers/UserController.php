@@ -8,19 +8,31 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
+    protected $role;
+    protected $profile;
+    protected $bebasMasalah;
+
     public function __construct()
     {
-        $this->middleware('auth');
-        // $this->role = Auth::user();
-        // $this->profile = Auth::user()->
+        $this->middleware(function ($request, $next) {
+            $user = Auth::user();
+            $this->role = $user->role;
+
+            if($this->role > 0) {
+                $this->profile = [$user->mahasiswa];
+            } else {
+                $this->profile = [$user->mahasiswa, $user->bebasMasalah];
+                // $this->bebasMasalah = $user->bebasMasalah;
+            }
+            return $next($request);
+        });
     }
 
     public function getHome()
     {
-        // $role = $this->role;
-        // dd($role);
         return view('dashboard.home.switcher', [
-            'user' => Auth::user()->mahasiswa
+            'role' => $this->role,
+            'profile' => $this->profile
         ]);
     }
 

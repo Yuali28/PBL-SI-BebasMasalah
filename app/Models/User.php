@@ -5,16 +5,16 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Pegawai;
 use App\Models\Mahasiswa;
+use App\Models\BebasMasalah;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
-    protected $primary_key = 'user_id';
 
     protected $primaryKey = 'id_user';
 
@@ -62,4 +62,10 @@ class User extends Authenticatable
         return $this->hasOne(Mahasiswa::class, 'fk_user');
     }
 
+    // public function bebasMasalah
+
+    public function bebasMasalah(): HasOneThrough
+    {
+        return $this->through('mahasiswa')->has('bebasMasalah');
+    }
 }

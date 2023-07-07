@@ -32,9 +32,9 @@ class AuthServiceProvider extends ServiceProvider
                 $profile = $user->student;
             }
 
-            // view()->composer('*', function ($view) {
-            //     $view->with('profile', $profile);
-            // });
+            view()->composer('*', function ($view) use($profile) {
+                $view->with('profile', $profile);
+            });
         }
 
     }

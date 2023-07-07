@@ -53,5 +53,12 @@ class SeederE extends Seeder
 
         DB::table('pegawai')->where('id_pegawai', 4)
         ->update(['fk_prodi' => 2]);
+
+        // ==================== Update Users ====================
+        DB::table('mahasiswa')->where('id_mahasiswa', 1)
+        ->update(['fk_bm' => 1]);
+
+        DB::table('mahasiswa')->where('id_mahasiswa', 2)
+        ->update(['fk_bm' => 2]);
     }
 }

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
-use App\Http\Controllers\BebasMasalahController;
 use App\Models\User;
+use App\Models\BebasMasalah;
 use Illuminate\Database\Eloquent\Model;
+use App\Http\Controllers\BebasMasalahController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Mahasiswa extends Model
@@ -12,6 +13,7 @@ class Mahasiswa extends Model
     use HasFactory;
 
     protected $table = 'mahasiswa';
+    protected $primaryKey = 'id_mahasiswa';
 
     protected $guarded = [
         'id'
@@ -38,6 +40,6 @@ class Mahasiswa extends Model
 
     public function bebasMasalah()
     {
-        return $this->belongsTo(BebasMasalah::class, 'fk_mahasiswa');
+        return $this->hasOne(BebasMasalah::class, 'fk_mahasiswa');
     }
 }
