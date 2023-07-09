@@ -34,6 +34,11 @@ class UserController extends Controller
             'role' => $this->role,
             'profile' => $this->profile
         ]);
+
+        return view('dashboard.home.switcher', [
+            'role' => $this->role,
+            'profile' => $this->profile
+        ]);
     }
 
     public function getUser(User $user)

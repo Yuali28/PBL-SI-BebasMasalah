@@ -7,18 +7,10 @@ use App\Models\Pegawai;
 use App\Models\Mahasiswa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-// use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Session;
 
 class AuthController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->middleware(function ($request, $next) {
-    //         $this->user = Auth::user();
-    //         return $next($request);
-    //     });
-    // }
-
     public function getLogin()
     {
         return view('auth.login');
@@ -43,42 +35,13 @@ class AuthController extends Controller
         return back()->with('loginError', 'Login gagal!');
     }
 
-    // public function getRegister()
-    // {
-    //     if(auth()->user()->role !== 2) {
-    //         return redirect('/dashboard');
-    //     }
-    //     return view('auth.register');
-    // }
-
-    // public function postMahasiswa(Request $request){}
-    // public function postPegawai(Request $request){}
-
-    // public function postUser(Request $request)
-    // {
-    //     if(auth()->user()->role !== 'Superuser') {
-    //         return redirect('/');
-    //     }
-    //     $userData = $request->validate([
-    //         'username' => 'required|unique:users|min:3',
-    //         'password' => 'required|min:3',
-    //         'role' => 'required',
-    //     ]);
-    //     $mahasiswaData = $request->validate([
-
-    //     ]);
-    //     $pegawaiData = $request->validate([
-
-    //     ]);
-
-
-    //     // dd($validatedData);
-    //     User::create($userData);
-    //     Mahasiswa::create($mahasiswaData);
-    //     Pegawai::create($pegawaiData);
-
-    //     return redirect('/register')->with('success', 'Registrasi berhasil!');
-    // }
+    public function postLogout(Request $request)
+    {
+        Session::flush();
+        Auth::logout();
+        $request->session()->invalidate();
+        return redirect('/login');
+    }
 
 
 }

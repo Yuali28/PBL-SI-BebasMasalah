@@ -48,18 +48,18 @@
     {{-- Admin TA --}}
         {{--
         - Dashboard.Home
-        - Dashboard.Data BM (R bebas-masalah)
+        - Dashboard.Data BM (RW bebas-masalah)
         - Dashboard.Profile
         --}}
     {{-- Keuangan --}}
         {{--
         - Dashboard.Home
-        - Dashboard.Data BM (R bebas-masalah)
+        - Dashboard.Data BM (RW bebas-masalah)
         - Dashboard.Profile
         --}}
     {{-- Perpustakaan --}}
         {{--
         - Dashboard.Home
-        - Dashboard.Data BM (R bebas-masalah)
+        - Dashboard.Data BM (RW bebas-masalah)
         - Dashboard.Profile
         --}}

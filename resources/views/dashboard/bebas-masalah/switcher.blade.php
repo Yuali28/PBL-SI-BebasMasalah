@@ -1,10 +1,5 @@
 @extends('adminlte::page')
 
-@php
-    $role = 0;
-    $nama = "Mike Wazowski"
-@endphp
-
 @section('title', 'Bebas Masalah')
 
 @section('content_header')

@@ -109,9 +109,9 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
-            'alt' => 'AdminLTE Preloader Image',
-            'effect' => 'animation__shake',
+            'path' => 'public/images/icons/logo-poliban.png',
+            'alt' => 'Loading...',
+            // 'effect' => 'animation__shake',
             'width' => 60,
             'height' => 60,
         ],
@@ -296,31 +296,6 @@ return [
             'topnav_right' => true, // Or "topnav => true" to place on the left.
         ],
         // Sidebar items:
-        [
-            'text' => 'Home',
-            'url'  => 'home',
-            'icon' => 'fas fa-fw fa-home'
-        ],
-        [
-            'text' => 'Dashboard',
-            'url'  => 'dashboard',
-            'icon' => 'fas fa-fw fa-tachometer-alt'
-        ],
-        [
-            'text' => 'Bebas Masalah',
-            'url' => 'dashboard/bebas-masalah',
-            'icon' => 'fas fa-fw fa-tasks',
-        ],
-        [
-            'text' => 'Profile',
-            'url'  => 'profile',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Log out',
-            'url'  => 'logout',
-            'icon' => 'fas fa-fw fa-sign-out-alt'
-        ],
     ],
 
     /*
