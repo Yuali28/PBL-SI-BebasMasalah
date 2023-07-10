@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mahasiswa;
 use App\Models\BebasMasalah;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class BebasMasalahController extends Controller
@@ -29,10 +31,12 @@ class BebasMasalahController extends Controller
     public function getBebasMasalah(BebasMasalah $bebasmasalah)
     {
         return view('dashboard.bebas-masalah.switcher', [
-            'role' => $this->role
+            'role' => $this->role,
+            'bebasMasalah' => BebasMasalah::all()
         ]);
     }
 
+    // function yg dipake gasan logic, kd dipakai di route
     public function lembar($request, $nim, $tahun_lulus, $judul)
     {
         $judul_lower = str_replace(' ', '_', strtolower($judul));
@@ -78,6 +82,13 @@ class BebasMasalahController extends Controller
 
     public function putPersetujuan()
     {
+        // $role = auth()->user()->role;
+        // if () {
 
+        // } elseif () {
+
+        // } elseif () {
+
+        // }
     }
 }

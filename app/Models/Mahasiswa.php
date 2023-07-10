@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\User;
 use App\Models\BebasMasalah;
+use App\Models\ProgramStudi;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Controllers\BebasMasalahController;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -41,5 +42,10 @@ class Mahasiswa extends Model
     public function bebasMasalah()
     {
         return $this->hasOne(BebasMasalah::class, 'fk_mahasiswa');
+    }
+
+    public function prodi()
+    {
+        return $this->belongsTo(ProgramStudi::class, 'fk_prodi', 'id_prodi');
     }
 }

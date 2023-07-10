@@ -62,8 +62,6 @@ class User extends Authenticatable
         return $this->hasOne(Mahasiswa::class, 'fk_user');
     }
 
-    // public function bebasMasalah
-
     public function bebasMasalah(): HasOneThrough
     {
         return $this->through('mahasiswa')->has('bebasMasalah');
