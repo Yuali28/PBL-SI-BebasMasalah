@@ -15,7 +15,7 @@ class BebasMasalah extends Model
 
     public function mahasiswa()
     {
-        return $this->belongsTo(Mahasiswa::class, 'fk_bm');
+        return $this->hasOne(Mahasiswa::class, 'fk_bm');
     }
 
 }
