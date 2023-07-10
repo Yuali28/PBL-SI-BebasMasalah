@@ -51,6 +51,30 @@
                     <div class="col">Lembar Revisi</div>
                     <div class="col">
                         <x-adminlte-input-file name="lembar_revisi" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_revisi }}"/>
+                        {{-- <div class="input-group mb-3">
+                            <div class="form-control border-right-0">{{ auth()->user()->bebasMasalah->lembar_revisi }}</div>
+                            <div class="input-group-append">
+                                <button class="btn btn-info bg-info input-group-text"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-success bg-success input-group-text"><i class="fas fa-pen"></i></button>
+                            </div>
+                        </div> --}}
+                        {{-- <div class="input-group mb-3">
+                            <div class="custom-file">
+                              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                            </div>
+                            <div class="input-group-append">
+                                <button class="btn btn-info bg-info input-group-text"><i class="fas fa-sync"></i></button>
+                            </div>
+                        </div> --}}
+                        {{-- <x-adminlte-input-file name="lembar_revisi" legend="upload" placeholder="{{ auth()->user()->bebasMasalah->lembar_revisi }}">
+                            <x-slot name="appendSlot">
+                                <div class="input-group-text bg-lightblue">
+                                    <i class="fas fa-sync"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-input-file> --}}
+
                     </div>
                 </div>
                 <div class="row d-flex">
@@ -61,3 +85,7 @@
     </div>
 </div>
 @stop
+
+<script>
+
+</script>
