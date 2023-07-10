@@ -18,7 +18,7 @@
         @include('dashboard.profile.pgw')
     @else
         {{-- terminate login session --}}
-        {{ $request->session()->flush(); }}
+        {{ $request->session()->flush() }}
     @endif
 @stop
 
