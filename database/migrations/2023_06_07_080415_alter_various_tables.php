@@ -36,6 +36,7 @@ return new class extends Migration
         Schema::table('mahasiswa', function (Blueprint $table) {
             $table->foreign('fk_prodi')->references('id_prodi')->on('program_studi')->onDelete('cascade');
             $table->foreign('fk_user')->references('id_user')->on('users')->onDelete('cascade')->nullable();
+            $table->foreign('fk_bm')->references('id_bm')->on('bebas_masalah')->onDelete('cascade')->nullable();
         });
 
         Schema::table('bebas_masalah', function (Blueprint $table) {

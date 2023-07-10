@@ -16,8 +16,8 @@ return new class extends Migration
             $table->char('nama', 50);
             $table->char('jenjang', 2);
             $table->char('akreditasi', 1);
-            $table->char('kode_prodi', 1);
-            $table->year('tahun_beridi');
+            $table->char('kode_prodi', 2);
+            $table->year('tahun_berdiri');
             $table->unsignedInteger('fk_jurusan');
             $table->unsignedInteger('fk_kaprodi');
             $table->timestamps();
