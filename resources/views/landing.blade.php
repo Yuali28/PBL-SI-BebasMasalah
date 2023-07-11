@@ -62,36 +62,31 @@
           <li><a class="nav-link scrollto" href="#Berita">Berita</a></li>
           <!-- <li><a class="nav-link scrollto" href="#team">Tentang Kami</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
+          @if (Route::has('login'))
+          @auth
           <li>
-          <!-- @if (Route::has('login'))
-                <div class="getstarted scrollto">
-                    @auth
-                        <a href="{{ url('/home') }}" >Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Log in</a>
+                  <a href="{{ route('dashboard.home') }}" class="nav-link">Dashboard</a>
+          </li>
+          <li>   
+          <form action="/logout" method="POST">
+                @csrf 
+                  <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                  LOG OUT</a> 
+          </form> 
+          </li>
+                @else
+          <li>
+                  <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
+          </li>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
-
-            @if (Route::has('login'))
-                    @auth
-                    @else
-                        <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
                     @endauth 
 
-            @endif
-          </li>
+                  @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle" ></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
-
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
@@ -322,11 +317,10 @@
             <h4>Sosial Media</h4>
             <p>Temukan Kami di Sosial Media</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhumaspoliban" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/poliban.ac.id?_rdc=1&_rdr" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/poliban_official/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UC5CfzvUTqEUPXhwwSLvP53Q" class="google-plus"><i class="bx bxl-skype"></i></a>
             </div>
           </div>
 
