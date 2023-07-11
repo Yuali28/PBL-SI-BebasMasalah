@@ -17,7 +17,7 @@ class SeederB extends Seeder
         // ==================== Pegawai ====================
 
         DB::table('pegawai')->insert([
-            'nama' => 'ketua jurusan mesin//placeholder',
+            'nama' => 'ketua jurusan mesin',
             'dosen' => '1',
             'nik' => '0123456789101112',
             'telp' => '02179182677',
@@ -29,7 +29,7 @@ class SeederB extends Seeder
         ]);
 
         DB::table('pegawai')->insert([
-            'nama' => 'ketua jurusan elektro//placeholder',
+            'nama' => 'ketua jurusan elektro',
             'dosen' => '1',
             'nik' => '0123456789101312',
             'telp' => '02259182677',
@@ -41,7 +41,7 @@ class SeederB extends Seeder
         ]);
 
         DB::table('pegawai')->insert([
-            'nama' => 'admin prodi mesin//placeholder',
+            'nama' => 'admin prodi mesin',
             'dosen' => '1',
             'nik' => '0123456789101113',
             'telp' => '02179182678',
@@ -53,7 +53,7 @@ class SeederB extends Seeder
         ]);
 
         DB::table('pegawai')->insert([
-            'nama' => 'admin prodi mesin otomotif//placeholder',
+            'nama' => 'admin prodi mesin otomotif',
             'dosen' => '1',
             'nik' => '0123456789101413',
             'telp' => '02179182638',
@@ -65,7 +65,7 @@ class SeederB extends Seeder
         ]);
 
         DB::table('pegawai')->insert([
-            'nama' => 'admin TA//placeholder',
+            'nama' => 'admin TA jurusan mesin',
             'dosen' => '1',
             'nik' => '0123456789101114',
             'telp' => '02179182679',
@@ -77,7 +77,7 @@ class SeederB extends Seeder
         ]);
 
         DB::table('pegawai')->insert([
-            'nama' => 'keuangan//placeholder',
+            'nama' => 'keuangan',
             'dosen' => '0',
             'nik' => '0123456789101115',
             'telp' => '02179182680',
@@ -89,7 +89,7 @@ class SeederB extends Seeder
         ]);
 
         DB::table('pegawai')->insert([
-            'nama' => 'perpustakaan//placeholder',
+            'nama' => 'perpustakaan',
             'dosen' => '1',
             'nik' => '012345678910116',
             'telp' => '02179182681',
@@ -98,6 +98,18 @@ class SeederB extends Seeder
             'agama' => 'Buddha',
             'jenis_kelamin' => '0',
             'fk_user' => '7',
+        ]);
+
+        DB::table('pegawai')->insert([
+            'nama' => 'admin TA jurusan elektro',
+            'dosen' => '1',
+            'nik' => '0123456389101114',
+            'telp' => '02179172679',
+            'alamat' => 'Jalan-jalan yang lurus',
+            'tanggal_lahir' => Carbon::parse('2000-01-01'),
+            'agama' => 'Buddha',
+            'jenis_kelamin' => '0',
+            'fk_user' => '5',
         ]);
     }
 }

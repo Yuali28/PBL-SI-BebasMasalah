@@ -44,7 +44,7 @@ class SeederA extends Seeder
         ]);
 
         DB::table('users')->insert([
-            'username' => 'ata',
+            'username' => 'ata1',
             'email' => 'pgw5@institusi.id',
             'password' => bcrypt('password'),
             'role' => '3',
@@ -74,6 +74,69 @@ class SeederA extends Seeder
         DB::table('users')->insert([
             'username' => 'mhs1-2',
             'email' => 'mhs2@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'ata2',
+            'email' => 'pgw8@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '3',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs1-3',
+            'email' => 'mhs3@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs1-4',
+            'email' => 'mhs4@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs1-5',
+            'email' => 'mhs5@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs2-1',
+            'email' => 'mhs6@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs2-2',
+            'email' => 'mhs7@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs2-3',
+            'email' => 'mhs8@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs2-4',
+            'email' => 'mhs9@institusi.id',
+            'password' => bcrypt('password'),
+            'role' => '0',
+        ]);
+
+        DB::table('users')->insert([
+            'username' => 'mhs2-5',
+            'email' => 'mhs10@institusi.id',
             'password' => bcrypt('password'),
             'role' => '0',
         ]);

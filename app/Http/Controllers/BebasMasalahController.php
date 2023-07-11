@@ -36,27 +36,6 @@ class BebasMasalahController extends Controller
         ]);
     }
 
-    // function yg dipake gasan logic, kd dipakai di route
-    public function lembar($request, $nim, $tahun_lulus, $judul)
-    {
-        $judul_lower = str_replace(' ', '_', strtolower($judul));
-
-        if ($request->hasFile($judul_lower)) {
-            $file_path = 'Lembar BM/' . $tahun_lulus . '/' . $nim;
-            $file_before = $request->$judul_lower->getClientOriginalName();
-            $file_after = $nim . '_'. $judul . '.pdf';
-
-            if ($file_before == auth()->user()->bebasMasalah->$judul_lower) {
-                Storage::disk('public')->delete($file_path . $file_after);
-            }
-
-            $file = $request->file($judul_lower);
-            $file->storeAs($file_path, $file_after);
-
-            return $file_after;
-        }
-    }
-
     public function putPengajuan(Request $request)
     {
         $this->validate($request, [
@@ -80,15 +59,55 @@ class BebasMasalahController extends Controller
         return redirect()->back();
     }
 
-    public function putPersetujuan()
+    public function putPersetujuan(Request $request)
     {
-        // $role = auth()->user()->role;
-        // if () {
+        $role = auth()->user()->role;
+        switch ($role) {
+            case 3:
+                $this->ata($request);
+                break;
+            case 4:
+                $this->keu($request);
+                break;
+            case 5:
+                $this->prp($request);
+                break;
+        }
+    }
 
-        // } elseif () {
+    // function yg dipake gasan logic, kd dipakai di route
+    public function lembar($request, $nim, $tahun_lulus, $judul)
+    {
+        $judul_lower = str_replace(' ', '_', strtolower($judul));
 
-        // } elseif () {
+        if ($request->hasFile($judul_lower)) {
+            $file_path = 'Lembar BM/' . $tahun_lulus . '/' . $nim;
+            $file_before = $request->$judul_lower->getClientOriginalName();
+            $file_after = $nim . '_'. $judul . '.pdf';
 
-        // }
+            if ($file_before == auth()->user()->bebasMasalah->$judul_lower) {
+                Storage::disk('public')->delete($file_path . $file_after);
+            }
+
+            $file = $request->file($judul_lower);
+            $file->storeAs($file_path, $file_after);
+
+            return $file_after;
+        }
+    }
+
+    public function ata($request)
+    {
+
+    }
+
+    public function keu($request)
+    {
+
+    }
+
+    public function prp($request)
+    {
+
     }
 }
