@@ -32,6 +32,14 @@
                         <p>Bebas Masalah</p>
                     </a>
                 </li>
+                @if (auth()->user()->role == 2)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.user') }}">
+                        <i class="fas fa-fw fa-users"></i>
+                        <p>Daftar User</p>
+                    </a>
+                </li>
+                @endif
                 <li class="nav-item">
                     {{-- <form action="/logout" method="POST">
                         @csrf --}}

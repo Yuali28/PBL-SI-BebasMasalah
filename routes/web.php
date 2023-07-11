@@ -30,9 +30,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard/bebas-masalah', [BebasMasalahController::class, 'getBebasMasalah'])->name('dashboard.bebas-masalah');
     Route::put('/dashboard/bebas-masalah/pengajuan', [BebasMasalahController::class, 'putPengajuan'])->name('dashboard.bebas-masalah.pengajuan');
     Route::put('/dashboard/bebas-masalah/persetujuan', [BebasMasalahController::class, 'putPersetujuan'])->name('dashboard.bebas-masalah.persetujuan');
+    Route::put('/dashboard/bebas-masalah/{bebasMasalah:id}/catatan', [BebasMasalahController::class, 'putCatatan'])->name('dashboard.bebas-masalah.catatan');
 
     Route::get('/dashboard/user', [UserController::class, 'getUser'])->name('dashboard.user');
-    Route::post('/dashboard/user/create', [UserController::class, 'postUser'])->name('dashboard.user.create');
+    Route::get('/dashboard/user/create', [UserController::class, 'createUser'])->name('dashboard.user.create');
+    Route::get('/dashboard/user/{user:id}/edit', [UserController::class, 'editUser'])->name('dashboard.user.edit');
+    Route::post('/dashboard/user/create/store', [UserController::class, 'postUser'])->name('dashboard.user.store');
+    Route::put('/dashboard/user/{user:id}/edit/put', [UserController::class, 'putUser'])->name('dashboard.user.put');
     Route::delete('/dashboard/user/{user:id}/delete', [UserController::class, 'deleteUser'])->name('dashboard.user.delete');
 
     Route::get('/dashboard/profile', [UserController::class, 'getProfile'])->name('dashboard.profile');
