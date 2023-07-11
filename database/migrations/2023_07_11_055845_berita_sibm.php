@@ -16,8 +16,9 @@ return new class extends Migration
             $table->char('judul_berita',100);
             $table->char('konten_berita',100);
             $table->char('thumbnail_berita',20);
-            $table->tinyInteger('berita_utama',1);
-            $table->tinyInteger('status_berita',1);           
+            $table->boolean('berita_utama');
+            $table->boolean('status_berita');
+            $table->timestamps();
         });
     }
 

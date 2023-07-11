@@ -82,10 +82,10 @@ class SeederE extends Seeder
         ->update(['fk_prodi' => 2]);
 
         DB::table('pegawai')->where('id_pegawai', 5)
-        ->update(['fk_prodi' => 1]);
+        ->update(['fk_jurusan' => 1]);
 
         DB::table('pegawai')->where('id_pegawai', 8)
-        ->update(['fk_prodi' => 2]);
+        ->update(['fk_jurusan' => 2]);
 
         // ==================== Update Users ====================
         DB::table('mahasiswa')->where('id_mahasiswa', 1)
