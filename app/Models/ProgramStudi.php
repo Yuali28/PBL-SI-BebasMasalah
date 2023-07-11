@@ -21,7 +21,7 @@ class ProgramStudi extends Model
 
     public function jurusan()
     {
-        return $this->belongsTo(Jurusan::class, 'fk_prodi', 'id_jurusan');
+        return $this->belongsTo(Jurusan::class, 'fk_jurusan', 'id_jurusan');
     }
 
     public function mahasiswa()

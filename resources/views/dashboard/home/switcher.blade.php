@@ -21,7 +21,7 @@
         @include('dashboard.home.prp')
     @else
         {{-- terminate login session --}}
-        {{ $request->session()->flush(); }}
+        {{ $request->session()->flush() }}
     @endif
 @stop
 
