@@ -1,7 +1,11 @@
 
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\BebasMasalahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,30 +18,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Landing
 Route::get('/', function () {
-    return view('welcome');
+    return view('landing');
+})->name('landing');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::get('/dashboard', [UserController::class, 'getHome'])->name('dashboard.home');
+    Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
+
+    Route::get('/dashboard/bebas-masalah', [BebasMasalahController::class, 'getBebasMasalah'])->name('dashboard.bebas-masalah');
+    Route::put('/dashboard/bebas-masalah/pengajuan', [BebasMasalahController::class, 'putPengajuan'])->name('dashboard.bebas-masalah.pengajuan');
+    Route::put('/dashboard/bebas-masalah/persetujuan', [BebasMasalahController::class, 'putPersetujuan'])->name('dashboard.bebas-masalah.persetujuan');
+
+    Route::get('/dashboard/user', [UserController::class, 'getUser'])->name('dashboard.user');
+    Route::post('/dashboard/user/create', [UserController::class, 'postUser'])->name('dashboard.user.create');
+    Route::delete('/dashboard/user/{user:id}/delete', [UserController::class, 'deleteUser'])->name('dashboard.user.delete');
+
+    Route::get('/dashboard/profile', [UserController::class, 'getProfile'])->name('dashboard.profile');
+    Route::put('/dashboard/profile/put', [UserController::class, 'putProfile'])->name('dashboard.profile.put');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard.home');
+Route::group(['middleware' => ['guest']], function() {
+    Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
+    Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');
 });
 
-Route::get('/bebasmasalah/mahasiswa', function () {
-    return view('bebasmasalah.mahasiswa');
-});
-
-Route::get('/bebasmasalah/kajur', function () {
-    return view('bebasmasalah.kajur');
-});
-
-Route::get('/bebasmasalah/prodi', function () {
-    return view('bebasmasalah.prodi');
-});
-
-Route::get('/bebasmasalah/ta', function () {
-    return view('bebasmasalah.ta');
-});
-
-Route::get('/bebasmasalah/keuangan', function () {
-    return view('bebasmasalah.keuangan');
-});

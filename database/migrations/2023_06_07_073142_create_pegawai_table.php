@@ -30,9 +30,9 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->enum('agama', ['Buddha', 'Hindu', 'Islam', 'Katolik', 'Konghucu', 'Kristen']);
             $table->boolean('jenis_kelamin');   //0 = Laki-laki, 1 = Perempuan
+            $table->unsignedInteger('fk_jurusan')->nullable();
             $table->unsignedInteger('fk_prodi')->nullable();
             $table->unsignedInteger('fk_user');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

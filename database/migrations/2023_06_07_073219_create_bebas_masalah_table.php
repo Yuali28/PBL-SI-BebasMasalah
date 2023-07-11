@@ -33,7 +33,7 @@ return new class extends Migration
             $table->string('lembar_konsultasi_dospem_2', 100)->nullable();
             $table->string('lembar_revisi', 100)->nullable();
             $table->string('note_ta');
-            $table->dateTimeTz('update_note_TA');
+            $table->dateTimeTz('update_note_ta');
 
             $table->unsignedInteger('fk_mahasiswa');
             $table->timestamps();

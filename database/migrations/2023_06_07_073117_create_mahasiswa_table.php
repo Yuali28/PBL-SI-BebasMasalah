@@ -18,7 +18,7 @@ return new class extends Migration
             $table->char('nama', 50);
             $table->char('nim', 10)->unique();          // username
             // $table->string('password');
-            $table->tinyInteger('role')->default(0);    // 0 = Mahasiswa, 1 = Kajur, 2 = Prodi, 3 =  TA, 4 = Keuangan, 5 = Perpus
+            // $table->tinyInteger('role')->default(0);    // 0 = Mahasiswa, 1 = Kajur, 2 = Prodi, 3 =  TA, 4 = Keuangan, 5 = Perpus
             $table->year('angkatan');
             $table->char('kelas', 1);
             // $table->string('email')->unique();  // this can be removed if condition applies (acces emails from users' table)
@@ -30,6 +30,7 @@ return new class extends Migration
             $table->date('tanggal_lahir');
             $table->enum('agama', ['Buddha', 'Hindu', 'Islam', 'Katolik', 'Konghucu', 'Kristen']);
             $table->boolean('jenis_kelamin');   //0 = Laki-laki, 1 = Perempuan
+            $table->unsignedInteger('fk_bm')->nullable();
             $table->unsignedInteger('fk_prodi');
             $table->unsignedInteger('fk_user');
             $table->timestamps();
