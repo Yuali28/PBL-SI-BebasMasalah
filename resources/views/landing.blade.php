@@ -81,7 +81,7 @@
                     @auth
                     @else
                         <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
-                    @endauth
+                    @endauth 
 
             @endif
           </li>
