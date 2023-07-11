@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>SIBM - Sistem Inforamasi Bebas Masalah</title>
+        <title>SIBM - POLIBAN</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/img/favico.ico" />
 
@@ -62,29 +62,7 @@
           <li><a class="nav-link scrollto" href="#Berita">Berita</a></li>
           <!-- <li><a class="nav-link scrollto" href="#team">Tentang Kami</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
-          <li>
-          <!-- @if (Route::has('login'))
-                <div class="getstarted scrollto">
-                    @auth
-                        <a href="{{ url('/home') }}" >Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
-
-            @if (Route::has('login'))
-                    @auth
-                    @else
-                        <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
-                    @endauth
-
-            @endif
-          </li>
+          <li><a class="getstarted scrollto" href="#about">LOGIN</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle" ></i>
       </nav><!-- .navbar -->
