@@ -64,13 +64,33 @@ class BebasMasalahController extends Controller
         $role = auth()->user()->role;
         switch ($role) {
             case 3:
-                $this->ata($request);
+                $this->ataPersetujuan($request);
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
             case 4:
-                $this->keu($request);
+                $this->keuPersetujuan($request);
                 break;
             case 5:
-                $this->prp($request);
+                $this->prpPersetujuan($request);
+                break;
+        }
+    }
+
+    public function putCatatan(Request $request, $id)
+    {
+        $role = auth()->user()->role;
+        switch ($role) {
+            case 3:
+                $bebas_masalah = BebasMasalah::find($id);
+                $bebas_masalah->note_ta = $request->note_ta;
+                $bebas_masalah->save();
+                return redirect()->route('dashboard.bebas-masalah');
+                break;
+            case 4:
+                $this->keuCatatan($request);
+                break;
+            case 5:
+                $this->prpCatatan($request);
                 break;
         }
     }
@@ -96,17 +116,33 @@ class BebasMasalahController extends Controller
         }
     }
 
-    public function ata($request)
+    public function ataPersetujuan($request)
+    {
+        $data = $request->toArray();
+
+        $data_filtered = array_filter($data, function ($key) {
+            return preg_match('/^status_ta_\d+$/', $key);
+        }, ARRAY_FILTER_USE_KEY);
+
+        $data_final = array_map(function ($key) {
+            return preg_replace('/^status_ta_/', '', $key);
+        }, array_keys($data_filtered));
+
+        foreach($data_final as $id) {
+            $bebas_masalah = BebasMasalah::find($id);
+            $bebas_masalah->status_ta = !$bebas_masalah->status_ta;
+            $bebas_masalah->save();
+        }
+
+        return redirect()->route('dashboard.bebas-masalah');
+    }
+
+    public function keuPersetujuan($request)
     {
 
     }
 
-    public function keu($request)
-    {
-
-    }
-
-    public function prp($request)
+    public function prpPersetujuan($request)
     {
 
     }
