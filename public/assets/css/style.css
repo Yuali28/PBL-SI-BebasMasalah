@@ -868,6 +868,12 @@ section {
   margin-bottom: 0;
 }
 
+.services .news-image {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
 .services .icon-box:hover {
   transform: translateY(-10px);
 }
