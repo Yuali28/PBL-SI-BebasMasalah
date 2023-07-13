@@ -70,7 +70,7 @@ $config = [
                     <div class="card-body">
                             @method('PUT')
                             @csrf
-                            <x-adminlte-datatable id="table_kajur" :heads="$heads" :config="$config" bordered striped hoverable with-buttons
+                            <x-adminlte-datatable id="table_perpus" :heads="$heads" :config="$config" bordered striped hoverable with-buttons
                             checkbox/>
                         </div>
                         <button type="submit" class="btn btn-flat btn-success w-100 card-footer bg-success">
