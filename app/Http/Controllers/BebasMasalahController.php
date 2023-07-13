@@ -93,7 +93,8 @@ class BebasMasalahController extends Controller
             case 5:
                 // $this->prpCatatan($request);
                 $bebas_masalah = BebasMasalah::find($id);
-                $bebas_masalah->note_perpustakaan = $request->note_perpustakaan;
+                $bebas_masalah->note_perpus = $request->note_perpus;
+                $bebas_masalah->update_note_perpus = now();
                 $bebas_masalah->save();
                 return redirect()->route('dashboard.bebas-masalah');
                 break;
@@ -152,16 +153,16 @@ class BebasMasalahController extends Controller
         $data = $request->toArray();
 
         $data_filtered = array_filter($data, function ($key) {
-            return preg_match('/^status_perpustakaan_\d+$/', $key);
+            return preg_match('/^status_perpus_\d+$/', $key);
         }, ARRAY_FILTER_USE_KEY);
 
         $data_final = array_map(function ($key) {
-            return preg_replace('/^status_perpustakaan_/', '', $key);
+            return preg_replace('/^status_perpus_/', '', $key);
         }, array_keys($data_filtered));
 
         foreach($data_final as $id) {
             $bebas_masalah = BebasMasalah::find($id);
-            $bebas_masalah->status_perpustakaan = !$bebas_masalah->status_perpustakaan;
+            $bebas_masalah->status_perpus = !$bebas_masalah->status_perpus;
             $bebas_masalah->save();
         }
 

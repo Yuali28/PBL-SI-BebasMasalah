@@ -19,13 +19,13 @@ $loop = 1;
 
 foreach ($bebasMasalah as $bm) {
     //  if ($bm->mahasiswa->prodi->fk_jurusan == auth()->user()->pegawai->fk_jurusan) {
-        $status_perpustakaan = $bm->status_perpustakaan == 1 ? 'Bebas Masalah' : 'Bermasalah';
+        $status_perpus = $bm->status_perpus == 1 ? 'Bebas Masalah' : 'Bermasalah';
 
         $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_'.$bm->id_bm.'">
                 <i class="fa fa-fw fa-pen mr-2"></i> Edit
             </button>';
 
-        $chk_btn = '<input type="checkbox" class="my-auto" style="width: 1.5rem; height: 1.5rem;" name="status_perpustakaan_' . $bm->id_bm . '">';
+        $chk_btn = '<input type="checkbox" class="my-auto" style="width: 1.5rem; height: 1.5rem;" name="status_perpus_' . $bm->id_bm . '">';
 
         $query[]=[
             $chk_btn,
@@ -34,8 +34,8 @@ foreach ($bebasMasalah as $bm) {
             $bm->mahasiswa->nama,
             $bm->mahasiswa->prodi->nama,
             $bm->tahun_lulus,
-            $status_perpustakaan,
-            $bm->note_perpustakaan,
+            $status_perpus,
+            $bm->note_perpus,
             $edit_btn
         ];
 
@@ -102,7 +102,7 @@ $config = [
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <textarea class="rounded-0 border-right-0 border-left-0" name="note_perpustakaan" id="catatan" rows="8" maxlength="100"></textarea>
+                        <textarea class="rounded-0 border-right-0 border-left-0" name="note_perpus" id="catatan" rows="8" maxlength="100"></textarea>
                         <button type="submit" class="btn btn-flat btn-primary w-100 card-footer bg-primary">
                             <i class="fa fa-fw fa-save mr-2"></i> Simpan
                         </button>
@@ -123,5 +123,5 @@ $config = [
             e.preventDefault();
         });
     </script>
-
+</section>
 @stop
