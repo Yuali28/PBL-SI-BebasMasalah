@@ -84,6 +84,7 @@ class BebasMasalahController extends Controller
             case 3:
                 $bebas_masalah = BebasMasalah::find($id);
                 $bebas_masalah->note_ta = $request->note_ta;
+                $bebas_masalah->update_note_ta = now();
                 $bebas_masalah->save();
                 return redirect()->route('dashboard.bebas-masalah');
                 break;
