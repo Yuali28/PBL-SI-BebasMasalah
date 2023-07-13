@@ -125,8 +125,8 @@
             <div id="syarat" class="content">
               <h3><strong>Persyaratan Bebas Masalah </strong></h3>
               <p>
-                Sebelum bisa melakukan yudisium mahasiswa harus terlebih dahulu bebas dari semua masalah, 
-                jika mahasiswa masih bermasalah maka mahasiswa tersebut harus melakukan penyelesaian bebas 
+                Sebelum bisa melakukan yudisium mahasiswa harus terlebih dahulu bebas dari semua masalah,
+                jika mahasiswa masih bermasalah maka mahasiswa tersebut harus melakukan penyelesaian bebas
                 masalah kepada devisi yang bermasalah.
               </p>
             </div>
@@ -137,8 +137,8 @@
                   <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Tugas Akhir <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                     <p>
-                      Penyelesaian masalah devisi Tugas Akhir : Mahasiswa mengajukan status bebas masalah 
-                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas). 
+                      Penyelesaian masalah devisi Tugas Akhir : Mahasiswa mengajukan status bebas masalah
+                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
                       Kemudian Mahasiswa diminta untuk menguploud berkas-berkas yang diperlukan.
                     </p>
                   </div>
@@ -148,8 +148,8 @@
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Perpustakaan <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                     <p>
-                      Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah 
-                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas). 
+                      Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah
+                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
                       Kemudian Mahasiswa diminta untuk menguploud bukti berkas yang diperlukan.
                     </p>
                   </div>
@@ -159,8 +159,8 @@
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Keuangan atau Administrasi<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                     <p>
-                    Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah 
-                    dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas). 
+                    Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah
+                    dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
                     Kemudian Mahasiswa diminta untuk menguploud bukti berkas yang diperlukan.
                     </p>
                   </div>
@@ -188,8 +188,8 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
-            Pendidikan Politeknik Negeri Banjarmasin didasarkan pada UU No. 20 Tahun 2003 tentang Sisdiknas, 
-            PP No. 60 Tahun 1999, SK Mendiknas No. 232/U/2000, No. 045/U/2002, dan No. 149/0/2002. 
+            Pendidikan Politeknik Negeri Banjarmasin didasarkan pada UU No. 20 Tahun 2003 tentang Sisdiknas,
+            PP No. 60 Tahun 1999, SK Mendiknas No. 232/U/2000, No. 045/U/2002, dan No. 149/0/2002.
             Sedangkan tujuan pendidikan Politeknik adalah menghasilkan tenaga profesional dengan kualitas sebagai berikut:
             </p>
             <ul>
@@ -203,8 +203,8 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
             Awal Sejarah berdirinya Politeknik Negeri Banjarmasin,
-             dimulai dari dibuka nya Politeknik Pertama pada tingkat tersier pada tahun 1976. 
-             Politeknik tersebut adalah Politeknik Mekanik Swiss. Pendidikan Politeknik tersebut dilaksanakan dalam rangka kerjasama antara Pemerintah Republik Indonesia dan Pemerintah Federal Swiss, 
+             dimulai dari dibuka nya Politeknik Pertama pada tingkat tersier pada tahun 1976.
+             Politeknik tersebut adalah Politeknik Mekanik Swiss. Pendidikan Politeknik tersebut dilaksanakan dalam rangka kerjasama antara Pemerintah Republik Indonesia dan Pemerintah Federal Swiss,
              yang pada tingkat teknis ditangani secara bersama oleh Institut Teknologi Bandung dan Swiss Contact. Gagasan Pendidikan Politeknik sebagai lembaga pendidikan keahlian khusus pada tingkat tarsier memperoleh tanggapan yang baik.
             </p>
             <a href="https://poliban.ac.id/sejarah-poliban/" class="btn-learn-more">Baca Selengkapnya</a>
