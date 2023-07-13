@@ -72,6 +72,7 @@ class BebasMasalahController extends Controller
                 break;
             case 5:
                 $this->prpPersetujuan($request);
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
         }
     }
@@ -90,7 +91,11 @@ class BebasMasalahController extends Controller
                 $this->keuCatatan($request);
                 break;
             case 5:
-                $this->prpCatatan($request);
+                // $this->prpCatatan($request);
+                $bebas_masalah = BebasMasalah::find($id);
+                $bebas_masalah->note_perpustakaan = $request->note_perpustakaan;
+                $bebas_masalah->save();
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
         }
     }
@@ -144,6 +149,22 @@ class BebasMasalahController extends Controller
 
     public function prpPersetujuan($request)
     {
+        $data = $request->toArray();
 
+        $data_filtered = array_filter($data, function ($key) {
+            return preg_match('/^status_perpustakaan_\d+$/', $key);
+        }, ARRAY_FILTER_USE_KEY);
+
+        $data_final = array_map(function ($key) {
+            return preg_replace('/^status_perpustakaan_/', '', $key);
+        }, array_keys($data_filtered));
+
+        foreach($data_final as $id) {
+            $bebas_masalah = BebasMasalah::find($id);
+            $bebas_masalah->status_perpustakaan = !$bebas_masalah->status_perpustakaan;
+            $bebas_masalah->save();
+        }
+
+        return redirect()->route('dashboard.bebas-masalah');
     }
 }
