@@ -4,12 +4,25 @@
     <h1>Berita</h1>
 @stop
 
+@include('dashboard.berita.create')
+
 @section('content')
+@if ($errors->any())
+<x-adminlte-callout theme="danger" title-class="text-danger text-uppercase"
+    icon="fas fa-lg fa-exclamation-circle" title="Gagal membuat berita!">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</x-adminlte-callout>
+@endif
+
 <div class="container">
     <h1>Daftar Berita</h1>
-
-    <a href="{{ route('dashboard.berita.create') }}" class="btn btn-primary mb-3">Tambah Berita</a>
-
+    <div class="d-flex flex-row mb-3">
+        <x-adminlte-button class="mr-2" label="Tambah Berita" icon="fas fa-plus" theme="primary" data-toggle="modal" data-target="#modal_create"></x-adminlte-button>
+    </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             {{ $message }}

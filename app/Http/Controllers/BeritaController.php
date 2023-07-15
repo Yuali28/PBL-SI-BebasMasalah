@@ -33,7 +33,8 @@ class BeritaController extends Controller
     }
 
     public function store(Request $request)
-    {
+    {    
+        // dd($request);
         $validatedData = $request->validate([
             'thumbnail_berita' => 'required|image|mimes:jpeg,png,jpg',
             'judul_berita' => 'required',
@@ -41,6 +42,7 @@ class BeritaController extends Controller
             'status_berita' => 'required',
             'berita_utama' => 'required',
         ]);
+        
 
         $thumbnailPath = $request->file('thumbnail_berita')->store('thumbnails');
 
