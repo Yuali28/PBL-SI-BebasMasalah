@@ -14,8 +14,8 @@ return new class extends Migration
         Schema::create('berita', function (Blueprint $table) {
             $table->increments('id_berita');
             $table->char('judul_berita',100);
-            $table->char('konten_berita',100);
-            $table->string('thumbnail_berita',255);
+            $table->text('konten_berita');
+            $table->string('thumbnail_berita');
             $table->boolean('berita_utama');
             $table->boolean('status_berita');
             $table->timestamps();

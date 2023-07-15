@@ -6,7 +6,7 @@
 <div class="container">
         <h1>Tambah Berita</h1>
 
-    
+
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -29,18 +29,32 @@
         </div>
         <div class="form-group">
             <label for="konten_berita">Konten Berita</label>
-            <input name="konten_berita" id="editor">
+            <textarea name="konten_berita" id="editor"></textarea>
         </div>
-        <div class="form-group">
-            <label for="status_berita">Status Berita</label>
-            <select name="status_berita" class="form-control">
-                <option value="published">Published</option>
-                <option value="draft">Draft</option>
-            </select>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="status_berita">Status Berita</label>
+                    <select name="status_berita" class="form-control">
+                        <option value="1" selected>Published</option>
+                        <option value="0">Draft</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <label for="berita_utama">Berita Utama</label>
+                    <select name="berita_utama" class="form-control">
+                        <option value="1" selected>Ya</option>
+                        <option value="0">Tidak</option>
+                    </select>
+                </div>
+            </div>
         </div>
+
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
-</div>  
+</div>
 </div>
 @stop
 

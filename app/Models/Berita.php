@@ -11,9 +11,14 @@ class Berita extends Model
     protected $table = 'berita';
     protected $primaryKey = 'id_berita';
 
+    protected $fillable = [
+        'thumbnail_berita',
+        'judul_berita',
+        'konten_berita',
+        'status_berita',
+        'berita_utama',
+    ];
+
 
     use HasFactory;
-    // protected $fillable = [
-    //     'judul', 'konten', 'tanggal',
-    // ];
 }

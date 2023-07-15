@@ -5,8 +5,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\BebasMasalahController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\BebasMasalahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,7 @@ Route::get('/', function () {
 })->name('landing');
 
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/dashboard', [UserController::class, 'getHome'])->name('dashboard.home');
+    Route::get('/dashboard', [DashboardController::class, 'getHome'])->name('dashboard.home');
     Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
 
     Route::get('/dashboard/bebas-masalah', [BebasMasalahController::class, 'getBebasMasalah'])->name('dashboard.bebas-masalah');
@@ -48,7 +49,7 @@ Route::group(['middleware' => 'apd'], function() {
     Route::put('/dashboard/user/pegawai/{user:id}/edit/put', [UserController::class, 'putPegawai'])->name('dashboard.user.pegawai.put');
     Route::delete('/dashboard/user/pegawai/{user:id}/delete', [UserController::class, 'deletePegawai'])->name('dashboard.user.pegawai.delete');
 
-    Route::get('/dashboard/berita', [BeritaController::class, 'getBerita'])->name('dashboard.berita.view');
+    Route::get('/dashboard/berita', [BeritaController::class, 'getBerita'])->name('dashboard.berita');
     Route::get('/dashboard/berita/create', [BeritaController::class, 'create'])->name('dashboard.berita.create');
     Route::post('/dashboard/berita', [BeritaController::class, 'store'])->name('dashboard.berita.store');
     Route::get('/dashboard/berita/{berita}/edit', [BeritaController::class, 'edit'])->name('dashboard.berita.edit');

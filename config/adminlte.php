@@ -307,6 +307,12 @@ return [
             'icon' => 'fas fa-fw fa-tasks',
         ],
         [
+            'text' => 'Berita',
+            'route' => 'dashboard.berita',
+            'icon' => 'fas fa-fw fa-newspaper',
+            'can' => 'apd'
+        ],
+        [
             'text' => 'Daftar User',
             'icon' => 'fas fa-fw fa-users',
             'can' => 'apd',
