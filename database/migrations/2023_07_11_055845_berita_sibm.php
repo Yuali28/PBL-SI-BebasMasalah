@@ -15,7 +15,7 @@ return new class extends Migration
             $table->increments('id_berita');
             $table->char('judul_berita',100);
             $table->char('konten_berita',100);
-            $table->char('thumbnail_berita',20);
+            $table->string('thumbnail_berita',255);
             $table->boolean('berita_utama');
             $table->boolean('status_berita');
             $table->timestamps();

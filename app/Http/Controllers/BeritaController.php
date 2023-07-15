@@ -35,13 +35,24 @@ class BeritaController extends Controller
     {
         // Validasi inputan
         $validatedData = $request->validate([
-            // Atur aturan validasi untuk setiap field inputan
+            'thumbnail_berita' => 'required|image|mimes:jpeg,png,jpg',
+            'judul_berita' => 'required',
+            'konten_berita' => 'required',
+            'status_berita' => 'required|in:published,draft',
         ]);
+
+        $thumbnailPath = $request->file('thumbnail_berita')->store('thumbnails');
+
+        $berita = new Berita;
+        $berita->thumbnail_berita = $thumbnailPath;
+        $berita->judul_berita = $request->input('judul_berita');
+        $berita->konten_berita = $request->input('konten_berita');
+        $berita->status_berita = $request->input('status_berita');
+        $berita->save();
 
         // Simpan berita baru ke database
         $berita = Berita::create($validatedData);
-
-        // Redirect ke halaman tampilan berita atau ke halaman lain yang diinginkan
+        return redirect()->route('dashboard.berita.create')->with('success', 'Berita has been created.');
     }
 
     public function edit(Berita $berita)

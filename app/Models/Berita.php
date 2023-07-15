@@ -13,7 +13,7 @@ class Berita extends Model
 
 
     use HasFactory;
-    protected $fillable = [
-        'judul', 'konten', 'tanggal',
-    ];
+    // protected $fillable = [
+    //     'judul', 'konten', 'tanggal',
+    // ];
 }

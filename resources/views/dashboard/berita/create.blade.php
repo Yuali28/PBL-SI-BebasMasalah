@@ -1,9 +1,12 @@
 @extends('adminlte::page')
 
 @section('content')
-<div class="container">
-    <h1>Tambah Berita</h1>
+<script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 
+<div class="container">
+        <h1>Tambah Berita</h1>
+
+    
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>
@@ -26,7 +29,7 @@
         </div>
         <div class="form-group">
             <label for="konten_berita">Konten Berita</label>
-            <textarea name="konten_berita" class="form-control" rows="5"></textarea>
+            <input name="konten_berita" id="editor">
         </div>
         <div class="form-group">
             <label for="status_berita">Status Berita</label>
@@ -37,6 +40,37 @@
         </div>
         <button type="submit" class="btn btn-primary">Simpan</button>
     </form>
-</div>    
+</div>  
 </div>
-@endsection
+@stop
+
+@section('css')
+<style>
+    .ck-editor__editable {
+        min-height: 10rem;
+    }
+</style>
+@stop
+
+@section('js')
+<script>
+    ClassicEditor
+        .create( document.querySelector ( '#editor' ), {
+            toolbar: {
+                items: [
+                    'undo', 'redo',
+                    '|', 'heading',
+                    '|', 'fontfamily', 'fontsize', 'fontColor', 'fontBackgroundColor',
+                    '|', 'bold', 'italic', 'strikethrough', 'subscript', 'superscript', 'code',
+                    '|', 'link', 'blockQuote', 'codeBlock',
+                    '|', 'bulletedList', 'numberedList', 'todoList', 'outdent', 'indent'
+                ],
+                shouldNotGroupWhenFull: false
+            }
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+</script>
+@stop
+
