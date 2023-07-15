@@ -116,7 +116,7 @@ class UserController extends Controller
             'mahasiswa' => $mahasiswa,
             'bebasMasalah' => $bebasMasalah,
             'pegawai' => $pegawai,
-            'user' => $user
+            'user' => $user,
         ]);
     }
 

@@ -62,36 +62,31 @@
           <li><a class="nav-link scrollto" href="#Berita">Berita</a></li>
           <!-- <li><a class="nav-link scrollto" href="#team">Tentang Kami</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
+          @if (Route::has('login'))
+          @auth
           <li>
-          <!-- @if (Route::has('login'))
-                <div class="getstarted scrollto">
-                    @auth
-                        <a href="{{ url('/home') }}" >Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
-
-            @if (Route::has('login'))
-                    @auth
-                    @else
-                        <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
-                    @endauth
-
-            @endif
+                  <a href="{{ route('dashboard.home') }}" class="nav-link">Dashboard</a>
           </li>
+          <li>   
+          <form action="/logout" method="POST">
+                @csrf 
+                  <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                  LOG OUT</a> 
+          </form> 
+          </li>
+                @else
+          <li>
+                  <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
+          </li>
+
+                    @endauth 
+
+                  @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle" ></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
-
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
@@ -125,8 +120,8 @@
             <div id="syarat" class="content">
               <h3><strong>Persyaratan Bebas Masalah </strong></h3>
               <p>
-                Sebelum bisa melakukan yudisium mahasiswa harus terlebih dahulu bebas dari semua masalah, 
-                jika mahasiswa masih bermasalah maka mahasiswa tersebut harus melakukan penyelesaian bebas 
+                Sebelum bisa melakukan yudisium mahasiswa harus terlebih dahulu bebas dari semua masalah,
+                jika mahasiswa masih bermasalah maka mahasiswa tersebut harus melakukan penyelesaian bebas
                 masalah kepada devisi yang bermasalah.
               </p>
             </div>
@@ -137,8 +132,8 @@
                   <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Tugas Akhir <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
                     <p>
-                      Penyelesaian masalah devisi Tugas Akhir : Mahasiswa mengajukan status bebas masalah 
-                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas). 
+                      Penyelesaian masalah devisi Tugas Akhir : Mahasiswa mengajukan status bebas masalah
+                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
                       Kemudian Mahasiswa diminta untuk menguploud berkas-berkas yang diperlukan.
                     </p>
                   </div>
@@ -148,8 +143,8 @@
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Perpustakaan <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
                     <p>
-                      Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah 
-                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas). 
+                      Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah
+                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
                       Kemudian Mahasiswa diminta untuk menguploud bukti berkas yang diperlukan.
                     </p>
                   </div>
@@ -159,8 +154,8 @@
                   <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Keuangan atau Administrasi<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                   <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
                     <p>
-                    Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah 
-                    dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas). 
+                    Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah
+                    dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
                     Kemudian Mahasiswa diminta untuk menguploud bukti berkas yang diperlukan.
                     </p>
                   </div>
@@ -188,8 +183,8 @@
         <div class="row content">
           <div class="col-lg-6">
             <p>
-            Pendidikan Politeknik Negeri Banjarmasin didasarkan pada UU No. 20 Tahun 2003 tentang Sisdiknas, 
-            PP No. 60 Tahun 1999, SK Mendiknas No. 232/U/2000, No. 045/U/2002, dan No. 149/0/2002. 
+            Pendidikan Politeknik Negeri Banjarmasin didasarkan pada UU No. 20 Tahun 2003 tentang Sisdiknas,
+            PP No. 60 Tahun 1999, SK Mendiknas No. 232/U/2000, No. 045/U/2002, dan No. 149/0/2002.
             Sedangkan tujuan pendidikan Politeknik adalah menghasilkan tenaga profesional dengan kualitas sebagai berikut:
             </p>
             <ul>
@@ -203,8 +198,8 @@
           <div class="col-lg-6 pt-4 pt-lg-0">
             <p>
             Awal Sejarah berdirinya Politeknik Negeri Banjarmasin,
-             dimulai dari dibuka nya Politeknik Pertama pada tingkat tersier pada tahun 1976. 
-             Politeknik tersebut adalah Politeknik Mekanik Swiss. Pendidikan Politeknik tersebut dilaksanakan dalam rangka kerjasama antara Pemerintah Republik Indonesia dan Pemerintah Federal Swiss, 
+             dimulai dari dibuka nya Politeknik Pertama pada tingkat tersier pada tahun 1976.
+             Politeknik tersebut adalah Politeknik Mekanik Swiss. Pendidikan Politeknik tersebut dilaksanakan dalam rangka kerjasama antara Pemerintah Republik Indonesia dan Pemerintah Federal Swiss,
              yang pada tingkat teknis ditangani secara bersama oleh Institut Teknologi Bandung dan Swiss Contact. Gagasan Pendidikan Politeknik sebagai lembaga pendidikan keahlian khusus pada tingkat tarsier memperoleh tanggapan yang baik.
             </p>
             <a href="https://poliban.ac.id/sejarah-poliban/" class="btn-learn-more">Baca Selengkapnya</a>
@@ -215,46 +210,47 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Services Section ======= -->
+    {{-- Berita --}}
     <section id="Berita" class="services section-bg">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Berita</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p><strong>Temukan berita terkait dengan Yudisium Polteknik Negeri Banjarmasin Tahun 2023</strong> </p>
         </div>
 
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
 
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
+
 
         </div>
 
@@ -313,8 +309,8 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Unit</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">UPT.TIK</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">P3M</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://tik.poliban.ac.id/?_ga=2.223160603.1086653186.1689227175-840325765.1668540109&_gl=1*xrlgxb*_ga*ODQwMzI1NzY1LjE2Njg1NDAxMDk.*_ga_J766YENGPW*MTY4OTIyNzE3NS40Mi4xLjE2ODkyMjcxODkuMC4wLjA.*_ga_4NKMEQMXF1*MTY4OTIyNzE3NS40NC4xLjE2ODkyMjcxODkuMC4wLjA.">UPT.TIK</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://poliban.ac.id/">P3M</a></li>
             </ul>
           </div>
 
@@ -322,11 +318,10 @@
             <h4>Sosial Media</h4>
             <p>Temukan Kami di Sosial Media</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhumaspoliban" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/poliban.ac.id?_rdc=1&_rdr" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/poliban_official/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UC5CfzvUTqEUPXhwwSLvP53Q" class="google-plus"><i class="bx bxl-skype"></i></a>
             </div>
           </div>
 

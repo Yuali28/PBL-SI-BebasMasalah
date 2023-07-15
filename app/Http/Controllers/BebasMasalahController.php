@@ -69,9 +69,11 @@ class BebasMasalahController extends Controller
                 break;
             case 4:
                 $this->keuPersetujuan($request);
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
             case 5:
                 $this->prpPersetujuan($request);
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
         }
     }
@@ -88,10 +90,19 @@ class BebasMasalahController extends Controller
                 return redirect()->route('dashboard.bebas-masalah');
                 break;
             case 4:
-                $this->keuCatatan($request);
+                $bebas_masalah = BebasMasalah::find($id);
+                $bebas_masalah->note_keuangan = $request->note_keuangan;
+                $bebas_masalah->update_note_keuangan = now();
+                $bebas_masalah->save();
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
             case 5:
-                $this->prpCatatan($request);
+                // $this->prpCatatan($request);
+                $bebas_masalah = BebasMasalah::find($id);
+                $bebas_masalah->note_perpus = $request->note_perpus;
+                $bebas_masalah->update_note_perpus = now();
+                $bebas_masalah->save();
+                return redirect()->route('dashboard.bebas-masalah');
                 break;
         }
     }
@@ -140,11 +151,43 @@ class BebasMasalahController extends Controller
 
     public function keuPersetujuan($request)
     {
+        $data = $request->toArray();
 
+        $data_filtered = array_filter($data, function ($key) {
+            return preg_match('/^status_keuangan_\d+$/', $key);
+        }, ARRAY_FILTER_USE_KEY);
+
+        $data_final = array_map(function ($key) {
+            return preg_replace('/^status_keuangan_/', '', $key);
+        }, array_keys($data_filtered));
+
+        foreach($data_final as $id) {
+            $bebas_masalah = BebasMasalah::find($id);
+            $bebas_masalah->status_keuangan = !$bebas_masalah->status_keuangan;
+            $bebas_masalah->save();
+        }
+
+        return redirect()->route('dashboard.bebas-masalah');
     }
 
     public function prpPersetujuan($request)
     {
+        $data = $request->toArray();
 
+        $data_filtered = array_filter($data, function ($key) {
+            return preg_match('/^status_perpus_\d+$/', $key);
+        }, ARRAY_FILTER_USE_KEY);
+
+        $data_final = array_map(function ($key) {
+            return preg_replace('/^status_perpus_/', '', $key);
+        }, array_keys($data_filtered));
+
+        foreach($data_final as $id) {
+            $bebas_masalah = BebasMasalah::find($id);
+            $bebas_masalah->status_perpus = !$bebas_masalah->status_perpus;
+            $bebas_masalah->save();
+        }
+
+        return redirect()->route('dashboard.bebas-masalah');
     }
 }
