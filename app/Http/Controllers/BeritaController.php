@@ -57,7 +57,7 @@ class BeritaController extends Controller
         ];
 
         Berita::create($berita);
-        return redirect()->route('dashboard.berita.create')->with('success', 'Berita has been created.');
+        return redirect()->route('dashboard.berita')->with('success', 'Berita has been created.');
     }
 
     public function edit(Berita $berita)

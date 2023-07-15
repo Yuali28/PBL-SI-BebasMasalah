@@ -1,7 +1,7 @@
 <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 
 
-<form method="POST" action="{{ route('dashboard.berita.store') }}">
+<form method="POST" action="{{ route('dashboard.berita.store') }}" enctype="multipart/form-data">
     @csrf
     <div class="modal fade "  id="modal_create" tabindex="-1" role="dialog" aria-labelledby="modal_createLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered " role="document">

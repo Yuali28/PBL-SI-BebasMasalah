@@ -47,7 +47,7 @@
                     <td>{{ htmlspecialchars_decode($berita->konten_berita) }}</td>
                     <td>{{ $berita->status_berita }}</td>
                     <td>
-                        <a href="{{ route('dashboard.berita.create', $berita->id) }}" class="btn btn-success">Edit</a>
+                        <a href="{{ route('dashboard.berita.create', $berita->id_berita) }}" class="btn btn-success">Edit</a>
                         {{-- <a href="{{ route('dashboard.berita.edit', $berita->id) }}" class="btn btn-primary">Edit</a> --}}
                         <form action="{{ route('dashboard.berita', $berita->id_berita) }}" method="POST" class="d-inline">
                             @csrf
