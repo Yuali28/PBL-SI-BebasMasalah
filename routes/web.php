@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BebasMasalahController;
+use App\Http\Controllers\BeritaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,13 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/dashboard/user/create/store', [UserController::class, 'postUser'])->name('dashboard.user.store');
     Route::put('/dashboard/user/{user:id}/edit/put', [UserController::class, 'putUser'])->name('dashboard.user.put');
     Route::delete('/dashboard/user/{user:id}/delete', [UserController::class, 'deleteUser'])->name('dashboard.user.delete');
+
+    Route::get('/dashboard/berita', [BeritaController::class, 'getBerita'])->name('dashboard.berita.view');
+    Route::get('/dashboard/berita/create', [BeritaController::class, 'create'])->name('dashboard.berita.create');
+    Route::post('/dashboard/berita', [BeritaController::class, 'store'])->name('dashboard.berita.store');
+    Route::get('/dashboard/berita/{berita}/edit', [BeritaController::class, 'edit'])->name('dashboard.berita.edit');
+    Route::put('/dashboard/berita/{berita}', [BeritaController::class, 'update'])->name('dashboard.berita.update');
+    Route::delete('/dashboard/berita/{berita}', [BeritaController::class, 'destroy'])->name('dashboard.berita.delete');
 
     Route::get('/dashboard/profile', [UserController::class, 'getProfile'])->name('dashboard.profile');
     Route::put('/dashboard/profile/put', [UserController::class, 'putProfile'])->name('dashboard.profile.put');

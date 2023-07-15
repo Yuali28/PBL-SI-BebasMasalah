@@ -62,36 +62,31 @@
           <li><a class="nav-link scrollto" href="#Berita">Berita</a></li>
           <!-- <li><a class="nav-link scrollto" href="#team">Tentang Kami</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
+          @if (Route::has('login'))
+          @auth
           <li>
-          <!-- @if (Route::has('login'))
-                <div class="getstarted scrollto">
-                    @auth
-                        <a href="{{ url('/home') }}" >Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Log in</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 font-semibold text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white focus:outline focus:outline-2 focus:rounded-sm focus:outline-red-500">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif -->
-
-            @if (Route::has('login'))
-                    @auth
-                    @else
-                        <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
-                    @endauth
-
-            @endif
+                  <a href="{{ route('dashboard.home') }}" class="nav-link">Dashboard</a>
           </li>
+          <li>   
+          <form action="/logout" method="POST">
+                @csrf 
+                  <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
+                  LOG OUT</a> 
+          </form> 
+          </li>
+                @else
+          <li>
+                  <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
+          </li>
+
+                    @endauth 
+
+                  @endif
         </ul>
         <i class="bi bi-list mobile-nav-toggle" ></i>
       </nav><!-- .navbar -->
-
     </div>
   </header><!-- End Header -->
-
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
@@ -215,46 +210,47 @@
     </section><!-- End About Us Section -->
 
     <!-- ======= Services Section ======= -->
+    {{-- Berita --}}
     <section id="Berita" class="services section-bg">
       <div class="container" data-aos="fade-up">
-
         <div class="section-title">
           <h2>Berita</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <p><strong>Temukan berita terkait dengan Yudisium Polteknik Negeri Banjarmasin Tahun 2023</strong> </p>
         </div>
 
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
 
           <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
             <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
+              <img class="news-image" src="assets/img/favico.ico" alt="Gambar Berita">
+              <h4><a href="">Berita Poliban</a></h4>
+              <p>Berita terkait Yudisium</p>
             </div>
           </div>
+
 
         </div>
 
@@ -313,8 +309,8 @@
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Unit</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">UPT.TIK</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">P3M</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://tik.poliban.ac.id/?_ga=2.223160603.1086653186.1689227175-840325765.1668540109&_gl=1*xrlgxb*_ga*ODQwMzI1NzY1LjE2Njg1NDAxMDk.*_ga_J766YENGPW*MTY4OTIyNzE3NS40Mi4xLjE2ODkyMjcxODkuMC4wLjA.*_ga_4NKMEQMXF1*MTY4OTIyNzE3NS40NC4xLjE2ODkyMjcxODkuMC4wLjA.">UPT.TIK</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="https://poliban.ac.id/">P3M</a></li>
             </ul>
           </div>
 
@@ -322,11 +318,10 @@
             <h4>Sosial Media</h4>
             <p>Temukan Kami di Sosial Media</p>
             <div class="social-links mt-3">
-              <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-              <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-              <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="https://twitter.com/i/flow/login?redirect_after_login=%2Fhumaspoliban" class="twitter"><i class="bx bxl-twitter"></i></a>
+              <a href="https://www.facebook.com/poliban.ac.id?_rdc=1&_rdr" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="https://www.instagram.com/poliban_official/" class="instagram"><i class="bx bxl-instagram"></i></a>
+              <a href="https://www.youtube.com/channel/UC5CfzvUTqEUPXhwwSLvP53Q" class="google-plus"><i class="bx bxl-skype"></i></a>
             </div>
           </div>
 

@@ -39,6 +39,12 @@
                         <p>Daftar User</p>
                     </a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('dashboard.berita.view') }}">
+                        <i class="fas fa-fw fa-newspaper"></i>
+                        <p>Berita</p>
+                    </a>
+                </li>
                 @endif
                 <li class="nav-item">
                     {{-- <form action="/logout" method="POST">
