@@ -20,13 +20,13 @@
         {{-- Small Box --}}
         <div class="row">
             <div class="col-4">
-                <x-adminlte-small-box title="528" text="Total User" icon="fas fa-users text-white" theme="primary" url="{{ route('dashboard.user')}}" url-text="Lihat Data"/>
+                <x-adminlte-small-box title="{{ $user }}" text="Total User" icon="fas fa-users text-white" theme="primary" url="{{ route('dashboard.user')}}" url-text="Lihat Data"/>
             </div>
             <div class="col-4">
-                <x-adminlte-small-box title="528" text="Mahasiswa" icon="fas fa-user-graduate text-white" theme="success" url="{{ route('dashboard.user')}}" url-text="Lihat Data"/>
+                <x-adminlte-small-box title="{{ $mahasiswa }}" text="Mahasiswa" icon="fas fa-user-graduate text-white" theme="success" url="{{ route('dashboard.user')}}" url-text="Lihat Data"/>
             </div>
             <div class="col-4">
-                <x-adminlte-small-box title="528" text="Pegawai" icon="fas fa-user-tie text-white" theme="danger" url="{{ route('dashboard.user')}}" url-text="Lihat Data"/>
+                <x-adminlte-small-box title="{{ $pegawai }}" text="Pegawai" icon="fas fa-user-tie text-white" theme="danger" url="{{ route('dashboard.user')}}" url-text="Lihat Data"/>
             </div>
         </div>
         {{-- Small Box -- End --}}
