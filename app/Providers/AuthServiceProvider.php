@@ -3,7 +3,9 @@
 namespace App\Providers;
 
 // use Illuminate\Support\Facades\Gate;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
 class AuthServiceProvider extends ServiceProvider
@@ -20,22 +22,35 @@ class AuthServiceProvider extends ServiceProvider
     /**
      * Register any authentication / authorization services.
      */
-    public function boot(): void
+    public function boot(Gate $gate): void
     {
-        //
-        if (Auth::check()) {
-            $user = Auth::user();
+        $this->registerPolicies();
 
-            if ($user->role > 0) {
-                $profile = $user->staff;
-            } else {
-                $profile = $user->student;
-            }
+        $gate->define('mhs', function (User $user) {
+            return $user->role === 0;
+        });
 
-            view()->composer('*', function ($view) use($profile) {
-                $view->with('profile', $profile);
-            });
-        }
+        $gate->define('kjr', function (User $user) {
+            return $user->role === 1;
+        });
 
+        $gate->define('apd', function (User $user) {
+            return $user->role === 2;
+        });
+
+        $gate->define('ata', function (User $user) {
+            return $user->role === 3;
+        });
+
+        $gate->define('keu', function (User $user) {
+            return $user->role === 4;
+        });
+
+        $gate->define('prp', function (User $user) {
+            return $user->role === 5;
+        });
     }
+
+
+
 }

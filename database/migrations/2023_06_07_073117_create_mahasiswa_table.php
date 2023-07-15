@@ -20,7 +20,7 @@ return new class extends Migration
             // $table->string('password');
             // $table->tinyInteger('role')->default(0);    // 0 = Mahasiswa, 1 = Kajur, 2 = Prodi, 3 =  TA, 4 = Keuangan, 5 = Perpus
             $table->year('angkatan');
-            $table->char('kelas', 1);
+            $table->char('kelas', 5);
             // $table->string('email')->unique();  // this can be removed if condition applies (acces emails from users' table)
                                                 // removing this can minimize redudancy, inconsistency and space
                                                 // removing this may slightly increase server load (need to access users table for emails)

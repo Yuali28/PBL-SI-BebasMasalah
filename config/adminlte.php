@@ -129,7 +129,7 @@ return [
     |
     */
 
-    'usermenu_enabled' => true,
+    'usermenu_enabled' => false,
     'usermenu_header' => false,
     'usermenu_header_class' => 'bg-primary',
     'usermenu_image' => false,
@@ -296,6 +296,39 @@ return [
             'topnav_right' => true, // Or "topnav => true" to place on the left.
         ],
         // Sidebar items:
+        [
+            'text' => 'Beranda',
+            'route' => 'dashboard.home',
+            'icon' => 'fas fa-fw fa-chart-bar',
+        ],
+        [
+            'text' => 'Bebas Masalah',
+            'route' => 'dashboard.bebas-masalah',
+            'icon' => 'fas fa-fw fa-tasks',
+        ],
+        [
+            'text' => 'Berita',
+            'route' => 'dashboard.berita',
+            'icon' => 'fas fa-fw fa-newspaper',
+            'can' => 'apd'
+        ],
+        [
+            'text' => 'Daftar User',
+            'icon' => 'fas fa-fw fa-users',
+            'can' => 'apd',
+            'submenu' => [
+                [
+                    'text' => 'Mahasiswa',
+                    'route' => 'dashboard.user.mahasiswa',
+                    'icon' => 'fas fa-fw fa-user-graduate',
+                ],
+                [
+                    'text' => 'Pegawai',
+                    'route' => 'dashboard.user.pegawai',
+                    'icon' => 'fas fa-fw fa-user-tie',
+                ]
+            ]
+        ]
     ],
 
     /*

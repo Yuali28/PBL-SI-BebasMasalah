@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
 use App\Models\Berita;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Illuminate\Http\Request;
 
 class BeritaController extends Controller
 {
@@ -33,25 +34,27 @@ class BeritaController extends Controller
 
     public function store(Request $request)
     {
-        // Validasi inputan
         $validatedData = $request->validate([
             'thumbnail_berita' => 'required|image|mimes:jpeg,png,jpg',
             'judul_berita' => 'required',
             'konten_berita' => 'required',
-            'status_berita' => 'required|in:published,draft',
+            'status_berita' => 'required',
+            'berita_utama' => 'required',
         ]);
 
         $thumbnailPath = $request->file('thumbnail_berita')->store('thumbnails');
 
-        $berita = new Berita;
-        $berita->thumbnail_berita = $thumbnailPath;
-        $berita->judul_berita = $request->input('judul_berita');
-        $berita->konten_berita = $request->input('konten_berita');
-        $berita->status_berita = $request->input('status_berita');
-        $berita->save();
+        $konten_berita = html_entity_decode($validatedData['konten_berita']);
 
-        // Simpan berita baru ke database
-        $berita = Berita::create($validatedData);
+        $berita = [
+            'thumbnail_berita' => $thumbnailPath,
+            'judul_berita' => $validatedData['judul_berita'],
+            'konten_berita' => $konten_berita,
+            'status_berita' => $validatedData['status_berita'],
+            'berita_utama' => $validatedData['berita_utama'],
+        ];
+
+        Berita::create($berita);
         return redirect()->route('dashboard.berita.create')->with('success', 'Berita has been created.');
     }
 

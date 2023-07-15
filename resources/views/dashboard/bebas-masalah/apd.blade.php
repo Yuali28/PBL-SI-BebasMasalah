@@ -1,13 +1,11 @@
 {{-- @dd($bebasMasalah->mahasiswa->nama) --}}
 @php
-$role = 2;
-
 $heads = [
     ['label' => 'No', 'width' => 3],
     ['label' => 'NIM', 'width' => 10],
     'Nama',
     ['label' => 'Tahun Ajar', 'width' => 8],
-    ['label' => 'BM TA', 'width' => 10],
+    ['label' => 'BM Tugas Akhir', 'width' => 10],
     ['label' => 'BM Keuangan', 'width' => 10],
     ['label' => 'BM Perpustakaan', 'width' => 10],
 ];
@@ -42,7 +40,6 @@ $config = [
 @endphp
 
 @section('content')
-@if ($role == 2)
 {{--Tables--}}
 <section class="content">
     <div class="container-fluid">
@@ -65,7 +62,4 @@ $config = [
         </div>
     </div>
 </section>
-
-@endif
-
 @stop

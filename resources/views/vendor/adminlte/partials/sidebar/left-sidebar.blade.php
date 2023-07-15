@@ -20,41 +20,6 @@
                 @endif>
                 {{-- Configured sidebar links --}}
                 @each('adminlte::partials.sidebar.menu-item', $adminlte->menu('sidebar'), 'item')
-                <li  class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.home') }}">
-                        <i class="fas fa-fw fa-chart-bar" aria-hidden="true"></i>
-                        <p>Dashboard</p>
-                    </a>
-                </li>
-                <li  class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.bebas-masalah') }}">
-                        <i class="fas fa-fw fa-tasks"></i>
-                        <p>Bebas Masalah</p>
-                    </a>
-                </li>
-                @if (auth()->user()->role == 2)
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.user') }}">
-                        <i class="fas fa-fw fa-users"></i>
-                        <p>Daftar User</p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{ route('dashboard.berita.view') }}">
-                        <i class="fas fa-fw fa-newspaper"></i>
-                        <p>Berita</p>
-                    </a>
-                </li>
-                @endif
-                <li class="nav-item">
-                    {{-- <form action="/logout" method="POST">
-                        @csrf --}}
-                        {{-- <a class="nav-link font-white" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                            <i class="fas fa-fw fa-sign-out-alt "></i>
-                            <p>Keluar</p>
-                        </a> --}}
-                    {{-- </form> --}}
-                </li>
             </ul>
         </nav>
     </div>
