@@ -46,7 +46,7 @@
                                     @endif
                                 </div>
                                 <p class="ml-3 text-justify">{{ auth()->user()->bebasMasalah->note_ta }}</p>
-                                <i class="font-weight-light">Diperbarui pada {{ Carbon\Carbon::parse(auth()->user()->bebasMasalah->update_note_ta)->format('j F Y') }}.</i>
+                                <i class="font-weight-light">Diperbarui pada {{ Carbon\Carbon::parse(auth()->user()->bebasMasalah->update_note_ta)->isoFormat('dddd, D MMMM YYYY') }}.</i>
                             </div>
                         </div>
                     </div>
@@ -76,7 +76,7 @@
                                     @endif
                                 </div>
                                 <p class="ml-3 text-justify">{{ auth()->user()->bebasMasalah->note_keuangan }}</p>
-                                <i class="font-weight-light">Diperbarui pada {{ Carbon\Carbon::parse(auth()->user()->bebasMasalah->update_note_keuangan)->format('j F Y') }}.</i>
+                                <i class="font-weight-light">Diperbarui pada {{ Carbon\Carbon::parse(auth()->user()->bebasMasalah->update_note_keuangan)->isoFormat('dddd, D MMMM YYYY') }}.</i>
                             </div>
                         </div>
                     </div>
@@ -106,7 +106,7 @@
                                     @endif
                                 </div>
                                 <p class="ml-3 text-justify">{{ auth()->user()->bebasMasalah->note_perpus }}</p>
-                                <i class="font-weight-light">Diperbarui pada {{ Carbon\Carbon::parse(auth()->user()->bebasMasalah->update_note_perpus)->format('j F Y') }}.</i>
+                                <i class="font-weight-light">Diperbarui pada {{ Carbon\Carbon::parse(auth()->user()->bebasMasalah->update_note_perpus)->isoFormat('dddd, D MMMM YYYY') }}.</i>
                             </div>
                         </div>
                     </div>

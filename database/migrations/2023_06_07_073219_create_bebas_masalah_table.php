@@ -16,24 +16,24 @@ return new class extends Migration
             $table->year('tahun_lulus');
 
             // perpus
-            $table->boolean('status_perpus');
-            $table->char('note_perpus', 100);
-            $table->dateTimeTz('update_note_perpus');
+            $table->boolean('status_perpus')->default(0);
+            $table->char('note_perpus', 100)->default('-');
+            $table->dateTimeTz('update_note_perpus')->default(now());
 
             // keuangan
-            $table->boolean('status_keuangan');
-            $table->char('note_keuangan', 100);
-            $table->dateTimeTz('update_note_keuangan');
+            $table->boolean('status_keuangan')->default(0);
+            $table->char('note_keuangan', 100)->default('-');
+            $table->dateTimeTz('update_note_keuangan')->default(now());
 
             // TA
-            $table->boolean('status_ta');
+            $table->boolean('status_ta')->default(0);
             $table->char('lembar_persetujuan', 100)->nullable();
             $table->char('lembar_pengesahan', 100)->nullable();
             $table->char('lembar_konsultasi_dospem_1', 100)->nullable();
             $table->char('lembar_konsultasi_dospem_2', 100)->nullable();
             $table->char('lembar_revisi', 100)->nullable();
-            $table->char('note_ta', 100);
-            $table->dateTimeTz('update_note_ta');
+            $table->char('note_ta', 100)->default('-');
+            $table->dateTimeTz('update_note_ta')->default(now());
 
             $table->unsignedInteger('fk_mahasiswa');
             $table->timestamps();

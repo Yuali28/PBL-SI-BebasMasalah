@@ -6,6 +6,7 @@ use App\Models\Pegawai;
 use App\Models\ProgramStudi;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Jurusan extends Model
 {
@@ -26,5 +27,10 @@ class Jurusan extends Model
     public function pegawai()
     {
         return $this->hasMany(Pegawai::class, 'fk_jurusan');
+    }
+
+    public function mahasiswa(): HasManyThrough
+    {
+        return $this->through('prodi')->has('mahasiswa');
     }
 }

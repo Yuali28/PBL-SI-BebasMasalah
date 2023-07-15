@@ -29,14 +29,14 @@ class Mahasiswa extends Model
         'alamat',
         'tanggal_lahir',
         'agama',
-        'jensi_kelamin',
+        'jenis_kelamin',
         'fk_prodi',
         'fk_user',
     ];
 
     public function user()
     {
-        return $this->belongsTo(User::class, 'fk_mahasiswa');
+        return $this->hasOne(User::class, 'fk_mahasiswa');
     }
 
     public function bebasMasalah()

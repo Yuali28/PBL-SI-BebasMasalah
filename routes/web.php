@@ -32,15 +32,20 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('/dashboard/bebas-masalah/persetujuan', [BebasMasalahController::class, 'putPersetujuan'])->name('dashboard.bebas-masalah.persetujuan');
     Route::put('/dashboard/bebas-masalah/{bebasMasalah:id}/catatan', [BebasMasalahController::class, 'putCatatan'])->name('dashboard.bebas-masalah.catatan');
 
-    Route::get('/dashboard/user', [UserController::class, 'getUser'])->name('dashboard.user');
-    Route::get('/dashboard/user/create', [UserController::class, 'createUser'])->name('dashboard.user.create');
-    Route::get('/dashboard/user/{user:id}/edit', [UserController::class, 'editUser'])->name('dashboard.user.edit');
-    Route::post('/dashboard/user/create/store', [UserController::class, 'postUser'])->name('dashboard.user.store');
-    Route::put('/dashboard/user/{user:id}/edit/put', [UserController::class, 'putUser'])->name('dashboard.user.put');
-    Route::delete('/dashboard/user/{user:id}/delete', [UserController::class, 'deleteUser'])->name('dashboard.user.delete');
-
     Route::get('/dashboard/profile', [UserController::class, 'getProfile'])->name('dashboard.profile');
     Route::put('/dashboard/profile/put', [UserController::class, 'putProfile'])->name('dashboard.profile.put');
+});
+
+Route::group(['middleware' => 'apd'], function() {
+    Route::get('/dashboard/user/mahasiswa', [UserController::class, 'getMahasiswa'])->name('dashboard.user.mahasiswa');
+    Route::post('/dashboard/user/mahasiswa/store', [UserController::class, 'storeMahasiswa'])->name('dashboard.user.mahasiswa.store');
+    Route::put('/dashboard/user/mahasiswa/{user:id}/edit/put', [UserController::class, 'putMahasiswa'])->name('dashboard.user.mahasiswa.put');
+    Route::delete('/dashboard/user/mahasiswa/{user:id}/delete', [UserController::class, 'deleteMahasiswa'])->name('dashboard.user.mahasiswa.delete');
+
+    Route::get('/dashboard/user/pegawai', [UserController::class, 'getPegawai'])->name('dashboard.user.pegawai');
+    Route::post('/dashboard/user/pegawai/store', [UserController::class, 'storePegawai'])->name('dashboard.user.pegawai.store');
+    Route::put('/dashboard/user/pegawai/{user:id}/edit/put', [UserController::class, 'putPegawai'])->name('dashboard.user.pegawai.put');
+    Route::delete('/dashboard/user/pegawai/{user:id}/delete', [UserController::class, 'deletePegawai'])->name('dashboard.user.pegawai.delete');
 });
 
 Route::group(['middleware' => ['guest']], function() {
