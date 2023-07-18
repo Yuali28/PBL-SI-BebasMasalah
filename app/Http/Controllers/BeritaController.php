@@ -62,27 +62,43 @@ class BeritaController extends Controller
 
     public function edit(Berita $berita)
     {
-        // Implementasi logika untuk halaman edit berita
+        return view('dashboard.berita.edit', compact('berita'));
+    // Implementasi logika untuk halaman edit berita
     }
 
     public function update(Request $request, Berita $berita)
     {
         // Validasi inputan
         $validatedData = $request->validate([
-            // Atur aturan validasi untuk setiap field inputan
+            'thumbnail_berita' => 'image|mimes:jpeg,png,jpg',
+            'judul_berita' => 'required',
+            'konten_berita' => 'required',
+            'status_berita' => 'required',
+            'berita_utama' => 'required',
         ]);
 
-        // Update berita dalam database
-        $berita->update($validatedData);
+    // Perbarui data berita yang diperlukan
+        $berita->thumbnail_berita = $validatedData['thumbnail_berita'];
+        $berita->judul_berita = $validatedData['judul_berita'];
+        $berita->konten_berita = html_entity_decode($validatedData['konten_berita']);
+        $berita->status_berita = $validatedData['status_berita'];
+        $berita->berita_utama = $validatedData['berita_utama'];
 
-        // Redirect ke halaman tampilan berita atau ke halaman lain yang diinginkan
+        // Perbarui thumbnail berita jika ada yang diunggah
+        if ($request->hasFile('thumbnail_berita')) {
+        // Hapus thumbnail berita sebelumnya (optional)
+        Storage::delete($berita->thumbnail_berita);
+
+        // Simpan thumbnail baru
+        $berita->thumbnail_berita = $request->file('thumbnail_berita')->store('thumbnails');
+        }
     }
 
     public function destroy(Berita $berita)
     {
-        // Hapus berita dari database
-        $berita->delete();
+    // Hapus berita dari database
+    $berita->delete();
 
-        // Redirect ke halaman tampilan berita atau ke halaman lain yang diinginkan
+    return redirect()->route('dashboard.berita.view')->with('success', 'Berita has been deleted.');
     }
 }

@@ -41,16 +41,6 @@ include(base_path('resources/views/dashboard/berita/edit.blade.php'));
                     <div class="card-body">
                         <div class="d-flex flex-row mb-3">
                             <x-adminlte-button class="mr-2" label="Tambah Mahasiswa" icon="fas fa-plus" theme="primary" data-toggle="modal" data-target="#modal_create"></x-adminlte-button>
-                            {{-- @if ($errors->any())
-                            <x-adminlte-callout theme="danger" title-class="text-danger text-uppercase"
-                            icon="fas fa-lg fa-exclamation-circle" title="Gagal membuat berita!">
-                                <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                                </ul>
-                            </x-adminlte-callout>
-                    @endif --}}
                         </div>
                         <x-adminlte-datatable id="table_kajur" :heads="$heads" :config="$config"
                         bordered striped hoverable with-buttons checkbox/>
@@ -66,5 +56,10 @@ include(base_path('resources/views/dashboard/berita/edit.blade.php'));
         $(document).on('click', '.edit-btn', function(e) {
             e.preventDefault();
         });
+
+        $(document).on('click', '.delete-btn', function(e) {
+            e.preventDefault(); 
+        });
     </script>
+    
 @stop

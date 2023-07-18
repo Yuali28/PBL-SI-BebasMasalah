@@ -15,9 +15,13 @@ $query = [];
 $loop = 1;
 
 foreach ($berita as $berita) {  
-        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_'.$berita->id_berita.'">
+        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_create'.$berita->id_berita.'">
                 <i class="fa fa-fw fa-pen mr-2"></i> Edit
             </button>';
+
+        $delete_btn = '<button class="btn btn-danger mx-1 shadow-sm delete-btn" data-berita-id="'.$berita->id_berita.'">
+            <i class="fa fa-fw fa-trash mr-2"></i> Delete
+        </button>';
 
         $query[]=[
             $loop,
@@ -25,7 +29,7 @@ foreach ($berita as $berita) {
             $berita->judul_berita,
             htmlspecialchars_decode($berita->konten_berita),
             $berita->status_berita,
-            $edit_btn
+            $edit_btn.' '.$delete_btn
         ];
 
         $loop++;
