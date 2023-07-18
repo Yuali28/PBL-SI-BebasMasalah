@@ -1,4 +1,4 @@
-<form method="POST" action="{{ route('dashboard.user.mahasiswa.store') }}">
+<form method="POST" action="{{ route('dashboard.user.mahasiswa.store') }}" autocomplete="off">
     @csrf
     <div class="modal fade" id="modal_create" tabindex="-1" role="dialog" aria-labelledby="modal_createLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
@@ -15,12 +15,12 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="username">Username / NIM</label>
-                        <input type="text" name="username" class="form-control shadow-sm @error('username') is-invalid @enderror" value="{{ old('username') }}">
+                        <input type="text" name="username" class="form-control shadow-sm @error('username') is-invalid @enderror" value="{{ old('username') }}" autocomplete="off">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control shadow-sm @error('password') is-invalid @enderror">
+                        <input type="password" name="password" class="form-control shadow-sm @error('password') is-invalid @enderror" autocomplete="off">
                     </div>
 
                 </div>
