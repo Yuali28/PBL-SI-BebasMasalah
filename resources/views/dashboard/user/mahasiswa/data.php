@@ -13,7 +13,7 @@ $heads = [
     ['label' => 'Tanggal Lahir', 'width' => 5],
     ['label' => 'Agama', 'width' => 5],
     ['label' => 'Jenis Kelamin', 'width' => 8],
-    ['label' => 'Opsi', 'width' => 10],
+    ['label' => 'Opsi', 'width' => 11],
 ];
 
 $query = [];
@@ -23,8 +23,11 @@ foreach ($users as $user) {
     if ($user->fk_mahasiswa && $user->mahasiswa->fk_prodi == auth()->user()->pegawai->fk_prodi) {
         $tanggal_lahir = Carbon::parse($user->mahasiswa_tanggal_lahir)->isoFormat('D MMMM YYYY');
         $jenis_kelamin = $user->mahasiswa->jenis_kelamin ? 'Laki-laki' : 'Perempuan';
-        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_'.$user->id_user.'">
+        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn mb-2" data-toggle="modal" data-target="#modal_edit_'.$user->id_user.'">
                 <i class="fa fa-fw fa-pen mr-2"></i> Edit
+            </button>';
+        $remove_btn = '<button class="btn btn-danger mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_remove_'.$user->id_user.'">
+                <i class="fa fa-fw fa-trash mr-2"></i> Hapus
             </button>';
 
         $query[]=[
@@ -38,7 +41,7 @@ foreach ($users as $user) {
             $tanggal_lahir,
             $user->mahasiswa->agama,
             $jenis_kelamin,
-            $edit_btn
+            $edit_btn . $remove_btn,
         ];
 
         $loop++;

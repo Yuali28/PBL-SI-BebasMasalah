@@ -1,6 +1,5 @@
 @php
 include(base_path('resources/views/dashboard/user/mahasiswa/data.php'));
-include(base_path('resources/views/dashboard/user/mahasiswa/edit.blade.php'));
 @endphp
 
 @extends('adminlte::page')
@@ -10,6 +9,8 @@ include(base_path('resources/views/dashboard/user/mahasiswa/edit.blade.php'));
 @section('content_header')
 
 @include('dashboard.user.mahasiswa.create')
+@include('dashboard.user.mahasiswa.edit')
+@include('dashboard.user.mahasiswa.remove')
 
 <section class="content-header">
     <div class="container-fluid">

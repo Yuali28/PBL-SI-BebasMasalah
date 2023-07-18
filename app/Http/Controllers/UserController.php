@@ -63,12 +63,47 @@ class UserController extends Controller
         $validatedData['jenis_kelamin'] = intval($request->jenis_kelamin);
         $validatedData['program_studi'] = intval($request->program_studi);
 
-        $this->mhsUser($validatedData);
+        $this->mhsUser($validatedData, 0);
 
         return redirect()->route('dashboard.user.mahasiswa');
     }
 
-    public function mhsUser($data) {
+    public function putMahasiswa(Request $request, $id)
+    {
+        $edit = User::find($id);
+
+        $validatedData = $request->validate([
+            'username' => 'required|min:10|max:16',
+            'nama' => 'required|max:50',
+            'email' => 'required',
+            'program_studi' => 'required',
+            'kelas' => 'required',
+            'angkatan' => 'required',
+            'tahun_lulus' => 'required',
+            'tanggal_lahir' => 'required',
+        ]);
+
+        $password = $request->password ? bcrypt($request->password) : $edit->password;
+        $validatedData['password'] = $password;
+        $validatedData['telp'] = $request->telp;
+        $validatedData['alamat'] = $request->alamat;
+        $validatedData['agama'] = $request->agama;
+        $validatedData['jenis_kelamin'] = intval($request->jenis_kelamin);
+        $validatedData['program_studi'] = intval($request->program_studi);
+
+        $this->mhsUser($validatedData, $id);
+
+        return redirect()->route('dashboard.user.mahasiswa');
+    }
+
+    public function deleteMahasiswa($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('dashboard.user.mahasiswa');
+    }
+
+    public function mhsUser($data, $edit) {
         $insert = [
             'username' => $data['username'],
             'email' => $data['email'],
@@ -76,11 +111,20 @@ class UserController extends Controller
             'role' => '0',
         ];
 
-        $user = User::create($insert);
-        $this->mhsMhs($data, $user->id_user);
+        if ($edit) {
+            $user = User::find($edit);
+            foreach($insert as $key => $value) {
+                $user->$key = $value;
+            }
+            $user->save();
+        } else {
+            $user = User::create($insert);
+        }
+
+        $this->mhsMhs($data, $user->id_user, $edit);
     }
 
-    public function mhsMhs($data, $id_user) {
+    public function mhsMhs($data, $id_user, $edit) {
         $insert = [
             'nama' => $data['nama'],
             'nim' => $data['username'],
@@ -95,28 +139,46 @@ class UserController extends Controller
             'fk_user' => $id_user,
         ];
 
-        $mahasiswa = Mahasiswa::create($insert);
-        $this->mhsBemas($data, $id_user, $mahasiswa->id_mahasiswa);
+        if ($edit) {
+            $mahasiswa = Mahasiswa::where('fk_user', $id_user)->first();
+            foreach($insert as $key => $value) {
+                $mahasiswa->$key = $value;
+            }
+            $mahasiswa->save();
+        } else {
+            $mahasiswa = Mahasiswa::create($insert);
+        }
+
+        $this->mhsBemas($data, $id_user, $mahasiswa->id_mahasiswa, $edit);
     }
 
-    public function mhsBemas($data, $id_user, $id_mahasiswa) {
+    public function mhsBemas($data, $id_user, $id_mahasiswa, $edit) {
         $insert = [
             'tahun_lulus' => $data['tahun_lulus'],
             'fk_mahasiswa' => $id_mahasiswa,
         ];
-        $bebas_masalah = BebasMasalah::create($insert);
 
-        $update_user = User::find($id_user);
-        $update_user->fk_mahasiswa = $id_mahasiswa;
-        $update_user->save();
+        if ($edit) {
+            $bebas_masalah = BebasMasalah::where('fk_mahasiswa', $id_mahasiswa)->first();
+            foreach($insert as $key => $value) {
+                $bebas_masalah->$key = $value;
+            }
+            $bebas_masalah->save();
+        } else {
+            $bebas_masalah = BebasMasalah::create($insert);
 
-        $update_mahasiswa = Mahasiswa::find($id_mahasiswa);
-        $update_mahasiswa->fk_bm = $bebas_masalah->id_bm;
-        $update_mahasiswa->save();
+            $update_user = User::find($id_user);
+            $update_user->fk_mahasiswa = $id_mahasiswa;
+            $update_user->save();
 
-        $update_user = User::find(User::latest()->get()->last()->id_user);
-        $update_user->fk_mahasiswa = Mahasiswa::latest()->get()->last()->id_mahasiswa;
-        $update_user->save();
+            $update_mahasiswa = Mahasiswa::find($id_mahasiswa);
+            $update_mahasiswa->fk_bm = $bebas_masalah->id_bm;
+            $update_mahasiswa->save();
+
+            $update_user = User::find($id_user);
+            $update_user->fk_mahasiswa = $id_mahasiswa;
+            $update_user->save();
+        }
     }
 
     public function getPegawai()
