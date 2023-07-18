@@ -16,7 +16,13 @@
 
                     <div class="form-group">
                         <label for="thumbnail_berita">Thumbnail Berita</label>
-                        <input type="file" name="thumbnail_berita" class="form-control-file" accept="image/png, image/jpg, image/jpeg" />
+                        <x-adminlte-input-file name="thumbnail_berita" placeholder="Choose a file...">
+                            <x-slot name="prependSlot">
+                                <div class="input-group-text bg-lightblue">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                            </x-slot>
+                        </x-adminlte-input-file>
                     </div>
                     <div class="form-group">
                         <label for="judul_berita">Judul Berita</label>

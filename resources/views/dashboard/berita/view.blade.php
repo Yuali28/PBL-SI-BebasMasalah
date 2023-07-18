@@ -21,9 +21,35 @@ include(base_path('resources/views/dashboard/berita/edit.blade.php'));
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">Dashboard</a></li>
                     <li class="breadcrumb-item"><a href="{{ route('dashboard.home') }}">Home</a></li>
-                    <li class="breadcrumb-item active"><a href="{{ route('dashboard.berita') }}">Berita</a></li>
+                <li class="breadcrumb-item active"><a href="#">Berita</a></li>
                 </ol>
             </div>
+        </div>
+    </div>
+</section>
+@stop
+
+@section('content')
+
+@if ($errors->any())
+<x-adminlte-callout theme="danger" title-class="text-danger text-uppercase"
+    icon="fas fa-lg fa-exclamation-circle" title="Gagal membuat berita!">
+    <ul>
+        @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+        @endforeach
+    </ul>
+</x-adminlte-callout>
+@endif
+
+<div class="container">
+    <h1>Daftar Berita</h1>
+    <div class="d-flex flex-row mb-3">
+        <x-adminlte-button class="mr-2" label="Tambah Berita" icon="fas fa-plus" theme="primary" data-toggle="modal" data-target="#modal_create"></x-adminlte-button>
+    </div>
+    @if ($message = Session::get('success'))
+        <div class="alert alert-success">
+            {{ $message }}
         </div>
     </div>
 </section>
