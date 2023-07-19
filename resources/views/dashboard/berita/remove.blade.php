@@ -36,7 +36,7 @@
                         </div> --}}
                     </div>
                     <div class="modal-footer">
-                        <form method="POST" action="{{ route('dashboard.berita', $item->id_berita) }}">
+                        <form method="POST" action="{{ route('dashboard.berita.delete', $item->id_berita) }}">
                             @method('DELETE')
                             @csrf
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

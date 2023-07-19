@@ -54,8 +54,8 @@ Route::group(['middleware' => 'apd'], function() {
     Route::get('/dashboard/berita', [BeritaController::class, 'getBerita'])->name('dashboard.berita');
     Route::get('/dashboard/berita/create', [BeritaController::class, 'create'])->name('dashboard.berita.create');
     Route::post('/dashboard/berita', [BeritaController::class, 'store'])->name('dashboard.berita.store');
-    Route::get('/dashboard/berita/{berita:id}/edit', [BeritaController::class, 'putBerita'])->name('dashboard.berita.put');
-    Route::put('/dashboard/berita/{berita:id}/delete', [BeritaController::class, 'deleteBerita'])->name('dashboard.berita.delete');
+    Route::put('/dashboard/berita/{berita:id}/edit', [BeritaController::class, 'putBerita'])->name('dashboard.berita.put');
+    Route::delete('/dashboard/berita/{berita:id}/delete', [BeritaController::class, 'deleteBerita'])->name('dashboard.berita.delete');
 });
 
 Route::group(['middleware' => ['guest']], function() {

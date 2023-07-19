@@ -3,7 +3,7 @@
 {{-- @dd($berita)    --}}
 
     @foreach ($berita as $item)
-        <form method="POST" action="{{ route('dashboard.berita.put', $item->id_berita) }}" autocomplete="off">
+        <form method="POST" enctype="multipart/form-data" action="{{ route('dashboard.berita.put', $item->id_berita) }}" autocomplete="off">
             @method('PUT')
             @csrf
             <div class="modal fade" id="modal_edit_berita{{ $item->id_berita }}" tabindex="-1" role="dialog" aria-labelledby="modal_edit_{{ $item->id_berita }}Label" aria-hidden="true">

@@ -22,10 +22,11 @@ foreach ($berita as $items) {
         $remove_btn = '<button class="btn btn-danger mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_remove_'.$items->id_berita.'">
                             <i class="fa fa-fw fa-trash mr-2"></i> Hapus
                         </button>';
+        $thumbnail = '<img src="' . asset('storage/thumbnails/' . $items->thumbnail_berita) . '" alt="" style="width: 100px">';
 
         $query[]=[
             $loop,
-            $items->thumbnail_berita,
+            $thumbnail,
             $items->judul_berita,
             htmlspecialchars_decode($items->konten_berita),
             $items->status_berita,

@@ -40,6 +40,7 @@ include(base_path('resources/views/dashboard/berita/data.php'));
                         <h3 class="card-title">Daftar Berita</h3>
                     </div>
                     <div class="card-body">
+                        <img src="{{ asset('storage/thumbnails/L9h1SF2Y4mrVmLhevdh5HJxuJNFwMjdwZCxczpbs.jpg') }}" alt="">
                         <div class="d-flex flex-row mb-3">
                             <x-adminlte-button class="mr-2" label="Tambah Berita" icon="fas fa-plus" theme="primary" data-toggle="modal" data-target="#modal_create"></x-adminlte-button>
                         </div>
