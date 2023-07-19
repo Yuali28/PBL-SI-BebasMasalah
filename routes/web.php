@@ -7,6 +7,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\MahasiswaController;
 use App\Http\Controllers\BebasMasalahController;
 
 /*
@@ -63,3 +64,4 @@ Route::group(['middleware' => ['guest']], function() {
     Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');
 });
 
+Route::get('/dashboard/cetak_pdf', [MahasiswaController::class, 'cetak_pdf'])->name('mahasiswa.cetakpdf');
