@@ -124,7 +124,7 @@ $genderArray = ['Laki-laki', 'Perempuan'];
                     <div class="col-md-4">
                         <label for="agama">Agama</label>
                         <select class="form-control shadow-sm" name="agama">
-                            @foreach ($kelasArray as $agama)
+                            @foreach ($agamaArray as $agama)
                             <option value="{{ $agama }}"
                                 {{ $agama != $user->mahasiswa->agama ?: 'selected'}}
                                 >{{ $agama }}</option>

@@ -41,7 +41,9 @@ include(base_path('resources/views/dashboard/user/mahasiswa/data.php'));
                     </div>
                     <div class="card-body">
                         <div class="d-flex flex-row mb-3">
-                            <x-adminlte-button class="mr-2" label="Tambah Mahasiswa" icon="fas fa-plus" theme="primary" data-toggle="modal" data-target="#modal_create"></x-adminlte-button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal_create">
+                                <i class="fas fa-plus mr-2"></i>Tambah Mahasiswa
+                            </button>
                         </div>
                         <x-adminlte-datatable id="table_kajur" :heads="$heads" :config="$config"
                         bordered striped hoverable with-buttons checkbox/>
