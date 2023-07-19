@@ -142,7 +142,10 @@ class DashboardController extends Controller
     public function stf()
     {
         $mahasiswa = Mahasiswa::all()->count();
-        $bebasMasalah = BebasMasalah::all()->count();
+        $bebasMasalah = [
+            BebasMasalah::where('status_keuangan', 0)->count() , BebasMasalah::where('status_keuangan', 1)->count(),
+            BebasMasalah::where('status_perpus', 0)->count() , BebasMasalah::where('status_perpus', 1)->count()
+        ];
         $pegawai = [];
         $user = [];
 
