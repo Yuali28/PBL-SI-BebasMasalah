@@ -1,7 +1,5 @@
 @php
 include(base_path('resources/views/dashboard/user/pegawai/data.php'));
-include(base_path('resources/views/dashboard/user/pegawai/create.blade.php'));
-include(base_path('resources/views/dashboard/user/pegawai/edit.blade.php'));
 @endphp
 
 @extends('adminlte::page')
@@ -9,6 +7,11 @@ include(base_path('resources/views/dashboard/user/pegawai/edit.blade.php'));
 @section('title', 'Dashboard')
 
 @section('content_header')
+
+@include('dashboard.user.pegawai.create')
+@include('dashboard.user.pegawai.edit')
+@include('dashboard.user.pegawai.remove')
+
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
@@ -38,7 +41,9 @@ include(base_path('resources/views/dashboard/user/pegawai/edit.blade.php'));
                     </div>
                     <div class="card-body">
                         <div class="d-flex flex-row mb-3">
-                            <x-adminlte-button class="mr-2" label="Tambah Pegawai" icon="fas fa-plus" theme="primary"></x-adminlte-button>
+                            <button class="btn btn-primary" data-toggle="modal" data-target="#modal_create">
+                                <i class="fas fa-plus mr-2"></i>Tambah Pegawai
+                            </button>
                         </div>
                         <x-adminlte-datatable id="table_kajur" :heads="$heads" :config="$config"
                         bordered striped hoverable with-buttons checkbox/>

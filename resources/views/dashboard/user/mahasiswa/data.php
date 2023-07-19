@@ -21,8 +21,8 @@ $loop = 1;
 
 foreach ($users as $user) {
     if ($user->fk_mahasiswa && $user->mahasiswa->fk_prodi == auth()->user()->pegawai->fk_prodi) {
-        $tanggal_lahir = Carbon::parse($user->mahasiswa_tanggal_lahir)->isoFormat('D MMMM YYYY');
-        $jenis_kelamin = $user->mahasiswa->jenis_kelamin ? 'Laki-laki' : 'Perempuan';
+        $tanggal_lahir = Carbon::parse($user->mahasiswa->tanggal_lahir)->isoFormat('D MMMM YYYY');
+        $jenis_kelamin = $user->mahasiswa->jenis_kelamin ? 'Perempuan' : 'Laki-laki';
         $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn mb-2" data-toggle="modal" data-target="#modal_edit_'.$user->id_user.'">
                 <i class="fa fa-fw fa-pen mr-2"></i> Edit
             </button>';
