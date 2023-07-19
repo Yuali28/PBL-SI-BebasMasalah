@@ -60,14 +60,10 @@ class BeritaController extends Controller
         return redirect()->route('dashboard.berita')->with('success', 'Berita has been created.');
     }
 
-    public function edit(Berita $berita)
+    public function putBerita(Request $request, Berita $berita)
     {
-        return view('dashboard.berita.edit', compact('berita'));
-    // Implementasi logika untuk halaman edit berita
-    }
+        $edit = Berita::find($berita);
 
-    public function update(Request $request, Berita $berita)
-    {
         // Validasi inputan
         $validatedData = $request->validate([
             'thumbnail_berita' => 'image|mimes:jpeg,png,jpg',
@@ -77,26 +73,31 @@ class BeritaController extends Controller
             'berita_utama' => 'required',
         ]);
 
-    // Perbarui data berita yang diperlukan
-        $berita->thumbnail_berita = $validatedData['thumbnail_berita'];
-        $berita->judul_berita = $validatedData['judul_berita'];
-        $berita->konten_berita = html_entity_decode($validatedData['konten_berita']);
-        $berita->status_berita = $validatedData['status_berita'];
-        $berita->berita_utama = $validatedData['berita_utama'];
+        // Perbarui data berita yang diperlukan
+        $validatedData['thumbnail_berita'] = $request->file('thumbnail_berita');
+        $validatedData['judul_berita'] = $request->input('judul_berita');
+        $validatedData['konten_berita'] = html_entity_decode($request->input('konten_berita'));
+        $validatedData['status_berita'] = $request->input('status_berita');
+        $validatedData['berita_utama'] = $request->input('berita_utama');
 
-        // Perbarui thumbnail berita jika ada yang diunggah
+        // $this->putBerita($validatedData, $berita);
+
+        // return redirect()->route('dashboard.berita');
+        
         if ($request->hasFile('thumbnail_berita')) {
-        // Hapus thumbnail berita sebelumnya (optional)
-        Storage::delete($berita->thumbnail_berita);
-
-        // Simpan thumbnail baru
-        $berita->thumbnail_berita = $request->file('thumbnail_berita')->store('thumbnails');
+            // Hapus thumbnail berita sebelumnya (optional)
+            Storage::delete($edit->thumbnail_berita);
+        
+            // Simpan thumbnail baru
+            $edit->thumbnail_berita = $request->file('thumbnail_berita')->store('thumbnails');
         }
+        return redirect()->route('dashboard.berita');
     }
 
     public function destroy(Berita $berita)
     {
     // Hapus berita dari database
+    
     $berita->delete();
 
     return redirect()->route('dashboard.berita.view')->with('success', 'Berita has been deleted.');

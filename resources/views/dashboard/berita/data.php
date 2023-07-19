@@ -6,7 +6,7 @@ $heads = [
     ['label' => 'No', 'width' => 3],
     ['label' => 'Thumbnail Berita', 'width' => 10],
     ['label' => 'Judul Berita', 'width' => 8],
-    ['label' => 'KOnten Berita', 'width' => 8],
+    ['label' => 'Konten Berita', 'width' => 8],
     ['label' => 'Status Berita', 'width' => 8],
     ['label' => 'Opsi', 'width' => 10],
 ];
@@ -14,22 +14,22 @@ $heads = [
 $query = [];
 $loop = 1;
 
-foreach ($berita as $berita) {  
-        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_create'.$berita->id_berita.'">
-                <i class="fa fa-fw fa-pen mr-2"></i> Edit
-            </button>';
+foreach ($berita as $items) {  
+        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_edit_berita'.$items->id_berita.'">
+                        <i class="fa fa-fw fa-pen mr-2"></i> Edit
+                    </button>';
 
-        $delete_btn = '<button class="btn btn-danger mx-1 shadow-sm delete-btn" data-berita-id="'.$berita->id_berita.'">
-            <i class="fa fa-fw fa-trash mr-2"></i> Delete
-        </button>';
+        $remove_btn = '<button class="btn btn-danger mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_remove_'.$items->id_berita.'">
+                            <i class="fa fa-fw fa-trash mr-2"></i> Hapus
+                        </button>';
 
         $query[]=[
             $loop,
-            $berita->thumbnail_berita,
-            $berita->judul_berita,
-            htmlspecialchars_decode($berita->konten_berita),
-            $berita->status_berita,
-            $edit_btn.' '.$delete_btn
+            $items->thumbnail_berita,
+            $items->judul_berita,
+            htmlspecialchars_decode($items->konten_berita),
+            $items->status_berita,
+            $edit_btn.' '.$remove_btn
         ];
 
         $loop++;
@@ -37,6 +37,6 @@ foreach ($berita as $berita) {
 
 $config = [
     'data' => $query,
-    'columns' => [['className' => 'text-center'], null, null, null, null, ['orderable' => false]],
+    'columns' => [['className' => 'text-center'], null, null, null, null, ['orderable' => false],],
     'language' => ['url' => 'https://cdn.datatables.net/plug-ins/1.11.3/i18n/id.json'],
 ];
