@@ -1,14 +1,14 @@
 {{-- Quick Profile -- START --}}
         {{-- Profile quick info stack vertically on mobile --}}
         <div class="row">
-            <div class="col-md">
+            <div class="col-md-8">
                 {{-- <x-adminlte-info-box title="Selamat datang," text="{{ auth()->user()->mahasiswa->nama }}" icon="fas fa-lg fa-user text-white"
                     theme="white" icon-theme="gradient-primary"/> --}}
                 <x-adminlte-card theme="primary" theme-mode="outline">
                     Selamat datang, {{ auth()->user()->mahasiswa->nama }}!
                 </x-adminlte-card>
             </div>
-            <div class="col-md">
+            <div class="col-md-4">
                 <x-adminlte-card theme="primary" theme-mode="outline">
                     Status:
                     @if (auth()->user()->bebasMasalah->status_ta && auth()->user()->bebasMasalah->status_keuangan && auth()->user()->bebasMasalah->status_perpus)
@@ -20,6 +20,13 @@
             </div>
         </div>
         {{-- Quick Profile -- END --}}
+
+        {{-- Cetak SIBM --}}
+        <a href="{{ route('mahasiswa.cetakpdf') }}">
+        <button type="button" class="btn btn-primary w-100 h-100 mb-2"><i class="fas fa-print mr-2"></i>Cetak Surat Bebas Masalah</button>
+        </a>
+        {{-- Cetak SIBM -- END --}}
+
         {{-- Rincian Bebas Masalah -- START --}}
         <div class="row mt-2">
             <div class="col mb-4">
@@ -114,3 +121,4 @@
             </div>
         </div>
         {{-- Rincian Bebas Masalah -- END --}}
+
