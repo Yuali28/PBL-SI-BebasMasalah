@@ -25,7 +25,7 @@ class Pegawai extends Model
         'alamat',
         'tanggal_lahir',
         'agama',
-        'jensi_kelamin',
+        'jenis_kelamin',
         'fk_prodi',
         'fk_jurusan',
         'fk_user',

@@ -13,20 +13,23 @@ $heads = [
     ['label' => 'Tanggal Lahir', 'width' => 5],
     ['label' => 'Agama', 'width' => 5],
     ['label' => 'Jenis Kelamin', 'width' => 8],
-    ['label' => 'Opsi', 'width' => 10],
+    ['label' => 'Opsi', 'width' => 11],
 ];
 
 $query = [];
 $loop = 1;
 foreach ($users as $user) {
         $nip = $user->pegawai->nip ?: '-';
-        $nidn = $user->pegawai->nidns ?: '-';
-        $tanggal_lahir = Carbon::parse($user->pegawai_tanggal_lahir)->isoFormat('D MMMM YYYY');
-        $jenis_kelamin = $user->pegawai->jenis_kelamin ? 'Laki-laki' : 'Perempuan';
+        $nidn = $user->pegawai->nidn ?: '-';
+        $tanggal_lahir = Carbon::parse($user->pegawai->tanggal_lahir)->isoFormat('DD MMMM YYYY');
+        $jenis_kelamin = $user->pegawai->jenis_kelamin ? 'Perempuan' : 'Laki-laki';
 
-        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_'.$user->id_user.'">
+        $edit_btn = '<button class="btn btn-success mx-1 shadow-sm edit-btn mb-2" data-toggle="modal" data-target="#modal_edit_'.$user->id_user.'">
                 <i class="fa fa-fw fa-pen mr-2"></i> Edit
             </button>';
+        $remove_btn = '<button class="btn btn-danger mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_remove_'.$user->id_user.'">
+            <i class="fa fa-fw fa-trash mr-2"></i> Hapus
+        </button>';
 
         $query[]=[
             $loop,
@@ -39,7 +42,7 @@ foreach ($users as $user) {
             $tanggal_lahir,
             $user->pegawai->agama,
             $jenis_kelamin,
-            $edit_btn
+            $edit_btn . $remove_btn,
         ];
 
         $loop++;
