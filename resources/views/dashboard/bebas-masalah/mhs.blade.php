@@ -26,31 +26,31 @@
                 <div class="row">
                     <div class="col">Lembar Persetujuan</div>
                     <div class="col">
-                        <x-adminlte-input-file name="lembar_persetujuan" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_persetujuan }}"/>
+                        <x-adminlte-input-file name="lembar_persetujuan" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_persetujuan }}" accept="application/pdf"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">Lembar Pengesahan</div>
                     <div class="col">
-                        <x-adminlte-input-file name="lembar_pengesahan" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_pengesahan }}"/>
+                        <x-adminlte-input-file name="lembar_pengesahan" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_pengesahan }}" accept="application/pdf"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">Lembar Konsultasi 1</div>
                     <div class="col">
-                        <x-adminlte-input-file name="lembar_konsultasi_dospem_1" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_konsultasi_dospem_1 }}"/>
+                        <x-adminlte-input-file name="lembar_konsultasi_dospem_1" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_konsultasi_dospem_1 }}" accept="application/pdf"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">Lembar Konsultasi 2</div>
                     <div class="col">
-                        <x-adminlte-input-file name="lembar_konsultasi_dospem_2" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_konsultasi_dospem_2 }}"/>
+                        <x-adminlte-input-file name="lembar_konsultasi_dospem_2" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_konsultasi_dospem_2 }}" accept="application/pdf"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">Lembar Revisi</div>
                     <div class="col">
-                        <x-adminlte-input-file name="lembar_revisi" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_revisi }}"/>
+                        <x-adminlte-input-file name="lembar_revisi" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_revisi }}" accept="application/pdf"/>
                         {{-- <div class="input-group mb-3">
                             <div class="form-control border-right-0">{{ auth()->user()->bebasMasalah->lembar_revisi }}</div>
                             <div class="input-group-append">
