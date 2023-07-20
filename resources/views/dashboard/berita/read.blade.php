@@ -7,20 +7,20 @@
         <meta name="author" content="" />
         <title>SIBM - Sistem Inforamasi Bebas Masalah</title>
         <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/favico.ico" />
+        <link rel="icon" type="image/x-icon" href="{{ asset('assets/img/favico.ico') }}" />
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Jost:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
-  <link href="assets/css/style.css" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/aos/aos.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/glightbox/css/glightbox.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/vendor/swiper/swiper-bundle.min.css') }}" rel="stylesheet">
+  <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 
   </head>
 
@@ -28,7 +28,7 @@
   <!-- ======= Header ======= -->
   <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
-    <img src="assets/img/favico.ico" width="36" height="36" />
+    <img src="{{ asset('assets/img/favico.ico') }}" width="36" height="36" />
       <h1 class="logo me-auto" >
         <a href="#hero" >
             &nbsp;SIBM
@@ -58,8 +58,7 @@
                 </ul>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#Sejarah">Sejarah</a></li>
-          <li><a class="nav-link scrollto" href="#Berita">Berita</a></li>
+          <li><a class="nav-link scrollto" href="#berita">Berita</a></li>
           <!-- <li><a class="nav-link scrollto" href="#team">Tentang Kami</a></li> -->
           <li><a class="nav-link scrollto" href="#contact">Hubungi Kami</a></li>
           @if (Route::has('login'))
@@ -100,141 +99,38 @@
           </div>
         </div>
         <div class="col-lg-6 d-flex justify-content-center order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
-          <img src="assets/img/favico.ico" class="img-fluid animated" alt="">
+          <img src="{{ asset('assets/img/favico.ico') }}" class="img-fluid animated" alt="">
         </div>
       </div>
     </div>
 
   </section><!-- End Hero -->
 
-  <main id="main">
-
-    <!-- ======= Why Us Section ======= -->
-    <section id="syarat" class="why-us section-bg">
-      <div class="container-fluid" data-aos="fade-up">
-
-        <div class="row">
-
-          <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch  order-2 order-lg-1">
-
-            <div id="syarat" class="content">
-              <h3><strong>Persyaratan Bebas Masalah </strong></h3>
-              <p>
-                Sebelum bisa melakukan yudisium mahasiswa harus terlebih dahulu bebas dari semua masalah,
-                jika mahasiswa masih bermasalah maka mahasiswa tersebut harus melakukan penyelesaian bebas
-                masalah kepada devisi yang bermasalah.
-              </p>
-            </div>
-
-            <div class="accordion-list">
-              <ul>
-                <li>
-                  <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Tugas Akhir <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                    <p>
-                      Penyelesaian masalah devisi Tugas Akhir : Mahasiswa mengajukan status bebas masalah
-                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
-                      Kemudian Mahasiswa diminta untuk menguploud berkas-berkas yang diperlukan.
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Perpustakaan <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                      Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah
-                      dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
-                      Kemudian Mahasiswa diminta untuk menguploud bukti berkas yang diperlukan.
-                    </p>
-                  </div>
-                </li>
-
-                <li>
-                  <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Keuangan atau Administrasi<i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                  <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                    <p>
-                    Penyelesaian masalah devisi Perpustakaan : Mahasiswa mengajukan status bebas masalah
-                    dengan mengisi biodata mahasiswa secara umum (nama, nim dan kelas).
-                    Kemudian Mahasiswa diminta untuk menguploud bukti berkas yang diperlukan.
-                    </p>
-                  </div>
-                </li>
-
-              </ul>
-            </div>
-
-          </div>
-
-          <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img" style='background-image: url("assets/img/why-us.png");' data-aos="zoom-in" data-aos-delay="150">&nbsp;</div>
-        </div>
-
-      </div>
-    </section><!-- End Why Us Section -->
-
-     <!-- ======= Sejarah ======= -->
-     <section id="Sejarah" class="about">
-      <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-          <h2>Sejarah</h2>
-        </div>
-
-        <div class="row content">
-          <div class="col-lg-6">
-            <p>
-            Pendidikan Politeknik Negeri Banjarmasin didasarkan pada UU No. 20 Tahun 2003 tentang Sisdiknas,
-            PP No. 60 Tahun 1999, SK Mendiknas No. 232/U/2000, No. 045/U/2002, dan No. 149/0/2002.
-            Sedangkan tujuan pendidikan Politeknik adalah menghasilkan tenaga profesional dengan kualitas sebagai berikut:
-            </p>
-            <ul>
-              <li><i class="ri-check-double-line"></i>Bertaqwa kepada Tuhan YME sesuai dengan agama/kepercayaan yang dianutnya.</li>
-              <li><i class="ri-check-double-line"></i>Berjiwa Pancasila dan memiliki integritas kepribadian yang tinggi.</li>
-              <li><i class="ri-check-double-line"></i>Bersifat terbuka, tanggap terhadap perubahan dan kemajuan ilmu dan teknologi.</li>
-              <li><i class="ri-check-double-line"></i>Menerapkan keterampilan teknologi yang dimilikinya sesuai bidang keahliannya dalam kegiatan produktif.</li>
-              <li><i class="ri-check-double-line"></i>Mampu bersikap, dan bertindak sebagai praktisi.</li>
-            </ul>
-          </div>
-          <div class="col-lg-6 pt-4 pt-lg-0">
-            <p>
-            Awal Sejarah berdirinya Politeknik Negeri Banjarmasin,
-             dimulai dari dibuka nya Politeknik Pertama pada tingkat tersier pada tahun 1976.
-             Politeknik tersebut adalah Politeknik Mekanik Swiss. Pendidikan Politeknik tersebut dilaksanakan dalam rangka kerjasama antara Pemerintah Republik Indonesia dan Pemerintah Federal Swiss,
-             yang pada tingkat teknis ditangani secara bersama oleh Institut Teknologi Bandung dan Swiss Contact. Gagasan Pendidikan Politeknik sebagai lembaga pendidikan keahlian khusus pada tingkat tarsier memperoleh tanggapan yang baik.
-            </p>
-            <a href="https://poliban.ac.id/sejarah-poliban/" class="btn-learn-more">Baca Selengkapnya</a>
+    
+  <section id="berita" class="contact">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4" style="display: flex; align-items: center;"> <!-- Column for Image -->
+        <div class="card mb-4">
+          <div class="card-body">
+            <img src="{{ asset('storage/thumbnails/' . $berita->thumbnail_berita) }}" alt="" class="img-fluid rounded" style="box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); max-width: 100%;">
           </div>
         </div>
-
       </div>
-    </section><!-- End About Us Section -->
-
-    <!-- ======= Services Section ======= -->
-    {{-- Berita --}}
-    <section id="Berita" class="services section-bg">
-      <div class="container" data-aos="fade-up">
-        <div class="section-title">
-          <h2>Berita</h2>
-          <p><strong>Temukan berita terkait dengan Yudisium Polteknik Negeri Banjarmasin Tahun 2023</strong> </p>
+      <div class="col-md-8"> <!-- Column for Title and Content -->
+        <div class="card">
+          <div class="card-header bg-primary text-white" style="text-align: center;">
+            <h3 style="margin: 0; padding: 10px; font-size: 24px;">{{ $berita->judul_berita }}</h3>
+          </div>
+          <div class="card-body">
+            <p style="font-size: 16px; line-height: 1.6;">{{ strip_tags(htmlspecialchars_decode($berita->konten_berita)) }}</p>
+          </div>
         </div>
-
-        <div class="row">
-          @foreach ($berita as $brt)
-            <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-              <div class="icon-box ">
-                <img class="news-image" src="{{ asset('storage/thumbnails/' . $brt->thumbnail_berita) }}" alt="">
-                <h4>{{ $brt->judul_berita }}</h4>
-                <a href="{{ route('landing.read', $brt->id_berita) }}">
-                  <p ><a  href="{{ route('landing.read', $brt->id_berita) }}" class="btn btn-link">Lihat Detail Berita</a></p>
-                </a>
-              </div>
-            </div>
-          @endforeach
-        </div>
-        
-
       </div>
-    </section><!-- End Services Section -->
+    </div>
+  </div>
+</section>
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -317,16 +213,19 @@
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
+<script src="{{ asset('assets/vendor/aos/aos.js') }}"></script>
+<script src="{{ asset('assets/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/glightbox/js/glightbox.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/swiper/swiper-bundle.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/waypoints/noframework.waypoints.js') }}"></script>
+<script src="{{ asset('assets/vendor/php-email-form/validate.js') }}"></script>
 
   <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="{{ asset('assets/js/main.js') }}"></script>
+
+  {{-- script ckeditor --}}
+  <script src="https://cdn.ckeditor.com/ckeditor5/38.1.1/classic/ckeditor.js"></script>
 
 </body>
 

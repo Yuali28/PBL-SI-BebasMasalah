@@ -18,8 +18,16 @@ class BeritaController extends Controller
 
     public function getLanding()
     {
+        // dd(Berita::all());
         return view('landing', [
-            'berita' => Berita::all()
+            'berita' => Berita::where('status_berita', 1)->get()
+        ]);
+    }
+
+    public function getRead($id)
+    {
+        return view('dashboard.berita.read', [
+            'berita' => Berita::find($id)
         ]);
     }
 
@@ -64,6 +72,12 @@ class BeritaController extends Controller
             'status_berita' => $validatedData['status_berita'],
             'berita_utama' => $validatedData['berita_utama'],
         ];
+
+        if ($validatedData['berita_utama'] == 1 && Berita::where('berita_utama', 1)->first() != null) {
+            $old_berita = Berita::where('berita_utama', 1)->first();
+            $old_berita->berita_utama = 0;
+            $old_berita->save();
+        }
 
         Berita::create($berita);
         return redirect()->route('dashboard.berita')->with('success', 'Berita has been created.');

@@ -23,9 +23,8 @@ use App\Http\Controllers\BebasMasalahController;
 */
 
 // Landing
-Route::get('/', function () {
-    return view('landing');
-})->name('landing');
+Route::get('/', [BeritaController::class, 'getLanding'])->name('landing');
+Route::get('/berita/{berita:id}', [BeritaController::class, 'getRead'])->name('landing.read');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::get('/dashboard', [DashboardController::class, 'getHome'])->name('dashboard.home');
