@@ -62,3 +62,4 @@ Route::group(['middleware' => ['guest']], function() {
     Route::post('/login', [AuthController::class, 'postLogin'])->name('login.store');
 });
 
+Route::get('/dashboard/cetak_pdf', [MahasiswaController::class, 'cetak_pdf'])->name('mahasiswa.cetakpdf');

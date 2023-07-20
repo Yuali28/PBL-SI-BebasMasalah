@@ -23,10 +23,17 @@
                 <x-adminlte-small-box title="{{ $mahasiswa }}" text="Mahasiswa" icon="fas fa-user-graduate text-white" theme="primary" url="{{ route('dashboard.bebas-masalah')}}" url-text="Lihat Data"/>
             </div>
             <div class="col-4">
+<<<<<<< HEAD
                 <x-adminlte-small-box title="{{ $bebasMasalah}}" text="Bebas Masalah" icon="fas fa-check text-white" theme="success" url="{{ route('dashboard.bebas-masalah')}}" url-text="Lihat Data"/>
             </div>
             <div class="col-4">
                 <x-adminlte-small-box title="{{ $bebasMasalah}}" text="Bermasalah" icon="fas fa-times text-white" theme="danger" url="{{ route('dashboard.bebas-masalah')}}" url-text="Lihat Data"/>
+=======
+                <x-adminlte-small-box title="{{ $bebasMasalah[1] }}" text="Bebas Masalah" icon="fas fa-check text-white" theme="success" url="{{ route('dashboard.bebas-masalah')}}" url-text="Lihat Data"/>
+            </div>
+            <div class="col-4">
+                <x-adminlte-small-box title="{{ $bebasMasalah[0] }}" text="Bermasalah" icon="fas fa-times text-white" theme="danger" url="{{ route('dashboard.bebas-masalah')}}" url-text="Lihat Data"/>
+>>>>>>> 7b99025aedb28da0036ec0f1ffcac03896593436
             </div>
         </div>
         {{-- Small Box -- End --}}
