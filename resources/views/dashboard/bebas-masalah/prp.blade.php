@@ -102,7 +102,7 @@ $config = [
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <textarea class="rounded-0 border-right-0 border-left-0" name="note_perpus" id="catatan" rows="8" maxlength="100"></textarea>
+                        <textarea class="rounded-0 border-right-0 border-left-0" name="note_perpus" id="catatan" rows="8" maxlength="100">Masukkan keterangan...</textarea>
                         <button type="submit" class="btn btn-flat btn-primary w-100 card-footer bg-primary">
                             <i class="fa fa-fw fa-save mr-2"></i> Simpan
                         </button>

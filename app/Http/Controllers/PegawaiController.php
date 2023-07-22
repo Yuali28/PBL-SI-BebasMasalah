@@ -63,12 +63,15 @@ class PegawaiController extends Controller
         ]);
 
         $dosen = $validatedData['role'] > 3 ? 0 : 1;
+        $prodi = $request->program_studi ? intval($request->program_studi) : null;
+        $jurusan = $request->jurusan ? intval($request->jurusan) : null;
         $validatedData['password'] = bcrypt($validatedData['password']);
-        $validatedData['program_studi'] = intval($request->program_studi);
-        $validatedData['jurusan'] = intval($request->jurusan);
+        $validatedData['program_studi'] = $prodi;
+        $validatedData['jurusan'] = $jurusan;
         $validatedData['nip'] = $request->nip;
         $validatedData['nidn'] = $request->nidn;
         $validatedData['dosen'] = $dosen;
+        // dd($validatedData);
 
         $this->pgwUser($validatedData, 0);
 
@@ -162,7 +165,7 @@ class PegawaiController extends Controller
             'fk_jurusan' => $data['jurusan'],
             'fk_user' => $id_user,
         ];
-
+        // dd($id_user);
         if ($edit) {
             $pegawai = Pegawai::where('fk_user', $id_user)->first();
             foreach($insert as $key => $value) {
@@ -171,6 +174,9 @@ class PegawaiController extends Controller
             $pegawai->save();
         } else {
             $pegawai = Pegawai::create($insert);
+            $user = User::find($id_user);
+            $user->fk_pegawai = intval($pegawai->id_pegawai);
+            $user->save();
         }
     }
 

@@ -22,9 +22,11 @@
         {{-- Quick Profile -- END --}}
 
         {{-- Cetak SIBM --}}
+        @if(auth()->user()->mahasiswa->bebasMasalah->status_keuangan == 1 && auth()->user()->mahasiswa->bebasMasalah->status_perpus == 1 && auth()->user()->mahasiswa->bebasMasalah->status_ta == 1)
         <a href="{{ route('mahasiswa.cetakpdf') }}">
         <button type="button" class="btn btn-primary w-100 h-100 mb-2"><i class="fas fa-print mr-2"></i>Cetak Surat Bebas Masalah</button>
         </a>
+        @endif
         {{-- Cetak SIBM -- END --}}
 
         {{-- Rincian Bebas Masalah -- START --}}

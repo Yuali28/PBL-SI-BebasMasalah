@@ -1,4 +1,4 @@
-{{-- @dd($bebasMasalah->mahasiswa->nama) --}}
+{{-- @dd($bebasMasalah) --}}
 @php
 $role = 3;
 
@@ -25,7 +25,7 @@ foreach ($bebasMasalah as $bm) {
                 <i class="fa fa-fw fa-pen mr-2"></i> Edit
             </button>';
 
-        $see_btn = '<button class="btn btn-info mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_see_'.$bm->id_bm.'">
+        $see_btn = '<button class="btn btn-info mx-1 shadow-sm edit-btn" data-toggle="modal" data-target="#modal_see_'. $bm->id_bm . '">
             <i class="fa fa-fw fa-eye mr-2"></i> Lihat
         </button>';
 
@@ -193,10 +193,7 @@ $config = [
                                 @endif
                             </div>
                         </div>
-                        {{-- <button type="submit" class="btn btn-flat btn-primary w-100 card-footer bg-primary">
                     </div>
-                        <i class="fa fa-fw fa-save mr-2"></i> Simpan
-                    </button> --}}
                 </div>
             </div>
         </div>
@@ -206,10 +203,17 @@ $config = [
 @endif
 
 @stop
+{{--
+@section('css')
+<style>
+.modal {
+    z-index: 1050; /* Adjust this value if needed */
+}
+</style>
+@endsection --}}
 
 @section('js')
     <script>
-        // Prevent form submission when clicking on the edit button
         $(document).on('click', '.edit-btn', function(e) {
             e.preventDefault();
         });
