@@ -109,7 +109,7 @@ class SeederB extends Seeder
             'tanggal_lahir' => Carbon::parse('2000-01-01'),
             'agama' => 'Buddha',
             'jenis_kelamin' => '0',
-            'fk_user' => '5',
+            'fk_user' => '10',
         ]);
     }
 }

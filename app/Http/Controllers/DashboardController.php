@@ -107,6 +107,9 @@ class DashboardController extends Controller
 
     public function ata()
     {
+        // dd(Pegawai::find(8));
+        // dd(auth()->user());
+        // dd(auth()->user()->pegawai);
         $jurusan = auth()->user()->pegawai->fk_jurusan;
 
         $bm0 = Mahasiswa::whereHas('bebasMasalah', function ($query) {

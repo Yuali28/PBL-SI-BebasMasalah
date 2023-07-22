@@ -87,7 +87,7 @@ class SeederE extends Seeder
         DB::table('pegawai')->where('id_pegawai', 8)
         ->update(['fk_jurusan' => 2]);
 
-        // ==================== Update Users ====================
+        // ==================== Update Mahasiswa ====================
         DB::table('mahasiswa')->where('id_mahasiswa', 1)
         ->update(['fk_bm' => 1]);
 
