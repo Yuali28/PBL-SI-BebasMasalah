@@ -113,7 +113,7 @@ class BebasMasalahController extends Controller
         $judul_lower = str_replace(' ', '_', strtolower($judul));
 
         if ($request->hasFile($judul_lower)) {
-            $file_path = 'Lembar BM/' . $tahun_lulus . '/' . $nim;
+            $file_path = 'public/Lembar BM/' . $tahun_lulus . '/' . $nim;
             $file_before = $request->$judul_lower->getClientOriginalName();
             $file_after = $nim . '_'. $judul . '.pdf';
 
