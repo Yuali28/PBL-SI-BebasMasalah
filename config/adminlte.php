@@ -106,16 +106,16 @@ return [
     |
     */
 
-    // 'preloader' => [
-    //     'enabled' => false,
-    //     'img' => [
-    //         'path' => 'images/icons/logo-poliban.png',
-    //         'alt' => 'Loading...',
-    //         'effect' => 'animation__shake',
-    //         'width' => 60,
-    //         'height' => 60,
-    //     ],
-    // ],
+    'preloader' => [
+        'enabled' => true,
+        'img' => [
+            'path' => 'images/icons/logo-poliban.png',
+            'alt' => 'Loading...',
+            'effect' => 'animation__shake',
+            'width' => 60,
+            'height' => 60,
+        ],
+    ],
 
     /*
     |--------------------------------------------------------------------------

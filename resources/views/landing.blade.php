@@ -67,19 +67,19 @@
           <li>
                   <a href="{{ route('dashboard.home') }}" class="nav-link">Dashboard</a>
           </li>
-          <li>   
+          <li>
           <form action="/logout" method="POST">
-                @csrf 
+                @csrf
                   <a class="getstarted scrollto" href="{{ route('logout') }}" onclick="event.preventDefault(); this.closest('form').submit();">
-                  LOG OUT</a> 
-          </form> 
+                  LOG OUT</a>
+          </form>
           </li>
                 @else
           <li>
                   <a href="{{ route('login') }}" class="getstarted scrollto">LOGIN</a>
           </li>
 
-                    @endauth 
+                    @endauth
 
                   @endif
         </ul>
@@ -219,7 +219,18 @@
         </div>
 
         <div class="row">
-          @foreach ($berita as $brt)
+          @foreach ($berita->where('berita_utama', 1) as $brt)
+            <div class="col-xl-3 col-md-6 d-flex w-50 h-25 align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+              <div class="icon-box ">
+                <img class="news-image" src="{{ asset('storage/thumbnails/' . $brt->thumbnail_berita) }}" alt="">
+                <h4>{{ $brt->judul_berita }}</h4>
+                <a href="{{ route('landing.read', $brt->id_berita) }}">
+                  <p ><a  href="{{ route('landing.read', $brt->id_berita) }}" class="btn btn-link">Lihat Detail Berita</a></p>
+                </a>
+              </div>
+            </div>
+          @endforeach
+          @foreach ($berita->where('berita_utama', 0) as $brt)
             <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
               <div class="icon-box ">
                 <img class="news-image" src="{{ asset('storage/thumbnails/' . $brt->thumbnail_berita) }}" alt="">
@@ -231,7 +242,7 @@
             </div>
           @endforeach
         </div>
-        
+
 
       </div>
     </section><!-- End Services Section -->

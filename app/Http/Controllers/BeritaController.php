@@ -123,6 +123,12 @@ class BeritaController extends Controller
             $edit->status_berita = $validatedData['status_berita'];
             $edit->berita_utama = $validatedData['berita_utama'];
 
+            if ($validatedData['berita_utama'] == 1 && Berita::where('berita_utama', 1)->first() != null) {
+                $old_berita = Berita::where('berita_utama', 1)->first();
+                $old_berita->berita_utama = 0;
+                $old_berita->save();
+            }
+
             $edit->save();
 
             return redirect()->route('dashboard.berita');

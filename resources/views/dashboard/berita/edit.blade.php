@@ -22,7 +22,7 @@
                         <!-- Edit form fields go here -->
                         <div class="form-group">
                             <label for="thumbnail_berita">Thumbnail Berita</label>
-                            <x-adminlte-input-file name="thumbnail_berita" placeholder="Choose a file...">
+                            <x-adminlte-input-file name="thumbnail_berita" placeholder="Choose a file..." accept="image/*">
                                 <x-slot name="prependSlot">
                                     <div class="input-group-text bg-lightblue">
                                         <i class="fas fa-upload"></i>
@@ -62,9 +62,9 @@
     </div>
     </form>
 
-    
+
 @endforeach
-    
+
 <style>
     .ck-editor__editable {
         min-height: 10rem;
