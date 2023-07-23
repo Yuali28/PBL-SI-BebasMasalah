@@ -96,24 +96,26 @@ class BeritaController extends Controller
                 'status_berita' => 'required',
                 'berita_utama' => 'required',
             ]);
-    
+
             // Perbarui data berita yang diperlukan
             $validatedData['thumbnail_berita'] = $request->file('thumbnail_berita');
             $validatedData['judul_berita'] = $request->input('judul_berita');
             $validatedData['konten_berita'] = html_entity_decode($request->input('konten_berita'));
             $validatedData['status_berita'] = $request->input('status_berita');
             $validatedData['berita_utama'] = $request->input('berita_utama');
-            
+
             // $this->putBerita($validatedData, $berita);
-            
+
             // return redirect()->route('dashboard.berita');
-            
+
             if ($request->hasFile('thumbnail_berita')) {
                 // Hapus thumbnail berita sebelumnya (optional)
                 Storage::delete($edit->thumbnail_berita);
-                
+
                 // Simpan thumbnail baru
-                $edit->thumbnail_berita = $request->file('thumbnail_berita')->store('thumbnails');
+                $thumbnailPath = $edit->thumbnail_berita = $request->file('thumbnail_berita')->store('thumbnails');
+
+                Storage::setVisibility($thumbnailPath, 'public');
             }
 
             $edit->judul_berita = $validatedData['judul_berita'];
@@ -122,7 +124,7 @@ class BeritaController extends Controller
             $edit->berita_utama = $validatedData['berita_utama'];
 
             $edit->save();
-            
+
             return redirect()->route('dashboard.berita');
         } catch (ValidationException $e) {
             // Output the validation errors to debug

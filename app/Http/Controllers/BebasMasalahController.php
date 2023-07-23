@@ -123,6 +123,7 @@ class BebasMasalahController extends Controller
 
             $file = $request->file($judul_lower);
             $file->storeAs($file_path, $file_after);
+            Storage::setVisibility($file_path . $file_after, 'public');
 
             return $file_after;
         }
