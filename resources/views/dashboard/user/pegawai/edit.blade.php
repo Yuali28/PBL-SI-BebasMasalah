@@ -23,12 +23,14 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-6 mb-3">
                         <label for="username">Username / NIK</label>
-                        <input type="text" name="username" class="form-control shadow-sm @error('username') is-invalid @enderror" value="{{ $user->pegawai->nik }}" autocomplete="off" minlength="16" maxlength="16">
+                        <input name="username" minlength="16" maxlength="16" required
+                        class="form-control shadow-sm @error('username') is-invalid @enderror" value="{{ $user->pegawai->nik }}" autocomplete="off" minlength="16" maxlength="16"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control shadow-sm @error('password') is-invalid @enderror" autocomplete="off">
+                        <input required type="password" name="password" class="form-control shadow-sm @error('password') is-invalid @enderror" autocomplete="off">
                     </div>
 
                 </div>
@@ -37,7 +39,7 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md mb-3">
                         <label for="nama">Nama</label>
-                        <input type="text" name="nama" class="form-control shadow-sm @error('nama') is-invalid @enderror" value="{{ $user->pegawai->nama }}" maxlength="50">
+                        <input required type="text" name="nama" class="form-control shadow-sm @error('nama') is-invalid @enderror" value="{{ $user->pegawai->nama }}" maxlength="50">
                     </div>
 
                 </div>
@@ -46,7 +48,7 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md mb-3">
                         <label for="alamat">Alamat</label>
-                        <textarea class="form-control shadow-sm @error('telp') is-invalid @enderror" name="alamat" rows="2" maxlength="100">{{ $user->pegawai->alamat }}</textarea>
+                        <textarea required class="form-control shadow-sm @error('telp') is-invalid @enderror" name="alamat" rows="2" maxlength="100">{{ $user->pegawai->alamat }}</textarea>
                     </div>
 
                 </div>
@@ -55,12 +57,14 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-6 mb-3">
                         <label for="telp">No. Telp</label>
-                        <input type="text" name="telp" class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ $user->pegawai->telp }}" minlength="10" maxlength="13">
+                        <input required type="text" name="telp" placeholder="08xxx"
+                        class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ $user->pegawai->telp }}" minlength="10" maxlength="13"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control shadow-sm @error('email') is-invalid @enderror" value="{{ $user->email }}">
+                        <input required type="email" name="email" class="form-control shadow-sm @error('email') is-invalid @enderror" value="{{ $user->email }}">
                     </div>
 
                 </div>
@@ -69,12 +73,16 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-6 mb-3">
                         <label for="nip">NIP</label>
-                        <input type="number" name="nip" class="form-control shadow-sm @error('nip') is-invalid @enderror" value="{{ $user->pegawai->nip }}" maxlength="18">
+                        <input name="nip" minlength="18"
+                        class="form-control shadow-sm @error('nip') is-invalid @enderror" value="{{ $user->pegawai->nip }}" maxlength="18"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="nidn">NIDN</label>
-                        <input type="number" name="nidn" class="form-control shadow-sm @error('nidn') is-invalid @enderror" value="{{ $user->pegawai->nidn }}" maxlength="10">
+                        <input name="nidn" minlength="10"
+                        class="form-control shadow-sm @error('nidn') is-invalid @enderror" value="{{ $user->pegawai->nidn }}" maxlength="10"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                 </div>
@@ -122,7 +130,7 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-4 mb-3">
                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir" class="form-control shadow-sm @error('tanggal_lahir') is-invalid @enderror" value="{{ $user->pegawai->tanggal_lahir }}">
+                        <input required type="date" name="tanggal_lahir" class="form-control shadow-sm @error('tanggal_lahir') is-invalid @enderror" value="{{ $user->pegawai->tanggal_lahir }}">
                     </div>
 
                     <div class="col-md-4">

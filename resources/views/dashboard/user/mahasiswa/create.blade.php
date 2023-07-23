@@ -47,7 +47,10 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="telp">No. Telp</label>
-                        <input type="text" name="telp" class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ old('telp') }}">
+                        <input type="text" name="telp" maxlength="13" minlength="10" placeholder="08xxx"
+                        class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ old('telp') }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
+
                     </div>
 
                     <div class="col-md-4 mb-3">
@@ -57,7 +60,9 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="tahun_lulus">Tahun Lulus</label>
-                        <input type="number" name="tahun_lulus" class="form-control shadow-sm @error('tahun_lulus') is-invalid @enderror" value="{{ old('tahun_lulus') }}">
+                        <input name="tahun_lulus" placeholder="20xx" maxlength="4" minlength="4"
+                        class="form-control shadow-sm @error('tahun_lulus') is-invalid @enderror" value="{{ old('tahun_lulus') }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                 </div>
@@ -88,7 +93,9 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="angkatan">Angkatan</label>
-                        <input type="number" name="angkatan" class="form-control shadow-sm @error('angkatan') is-invalid @enderror" value="{{ old('angkatan') }}">
+                        <input name="angkatan" placeholder="20xx" maxlength="4" minlength="4"
+                        class="form-control shadow-sm @error('angkatan') is-invalid @enderror" value="{{ old('angkatan') }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                 </div>

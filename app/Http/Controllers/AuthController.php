@@ -29,10 +29,10 @@ class AuthController extends Controller
         }
 
         return back()->withErrors([
-            'username' => 'Username atau password salah!',
+            'message' => 'Username atau password salah!',
         ])->onlyInput('username');
 
-        return back()->with('loginError', 'Login gagal!');
+        return back()->with('message', 'Login gagal!');
     }
 
     public function postLogout(Request $request)
