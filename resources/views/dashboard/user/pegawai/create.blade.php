@@ -15,12 +15,14 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="username">Username / NIK</label>
-                        <input type="text" name="username" class="form-control shadow-sm @error('username') is-invalid @enderror" value="{{ old('username') }}" autocomplete="off" minlength="16" maxlength="16">
+                        <input type="text" name="username" class="form-control shadow-sm @error('username') is-invalid @enderror" value="{{ old('username') }}" autocomplete="off" minlength="16" maxlength="16"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)" required>
+
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="password">Password</label>
-                        <input type="password" name="password" class="form-control shadow-sm @error('password') is-invalid @enderror" autocomplete="off">
+                        <input type="password" name="password" class="form-control shadow-sm @error('password') is-invalid @enderror" autocomplete="off" required>
                     </div>
 
                 </div>
@@ -29,7 +31,7 @@
 
                     <div class="col-md mb-3">
                         <label for="nama">Nama</label>
-                        <input type="text" name="nama" class="form-control shadow-sm @error('nama') is-invalid @enderror" value="{{ old('nama') }}" maxlength="50">
+                        <input type="text" name="nama" class="form-control shadow-sm @error('nama') is-invalid @enderror" value="{{ old('nama') }}" maxlength="50" required>
                     </div>
 
                 </div>
@@ -38,7 +40,7 @@
 
                     <div class="col-md mb-3">
                         <label for="alamat">Alamat</label>
-                        <textarea class="form-control shadow-sm @error('telp') is-invalid @enderror" name="alamat" rows="2" maxlength="100">{{ old('alamat') }}</textarea>
+                        <textarea class="form-control shadow-sm @error('telp') is-invalid @enderror" name="alamat" rows="2" maxlength="100" required>{{ old('alamat') }}</textarea>
                     </div>
 
                 </div>
@@ -47,12 +49,14 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="telp">No. Telp</label>
-                        <input type="text" name="telp" class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ old('telp') }}" minlength="10" maxlength="13">
+                        <input type="text" name="telp" placeholder="08xxx" required
+                        class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ old('telp') }}" minlength="10" maxlength="13"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="email">Email</label>
-                        <input type="email" name="email" class="form-control shadow-sm @error('email') is-invalid @enderror" value="{{ old('email') }}">
+                        <input type="email" name="email" class="form-control shadow-sm @error('email') is-invalid @enderror" value="{{ old('email') }}" required>
                     </div>
 
                 </div>
@@ -61,12 +65,16 @@
 
                     <div class="col-md-6 mb-3">
                         <label for="nip">NIP</label>
-                        <input type="number" name="nip" class="form-control shadow-sm @error('nip') is-invalid @enderror" value="{{ old('nip') }}">
+                        <input name="nip" minlength="18" maxlength="18"
+                        class="form-control shadow-sm @error('nip') is-invalid @enderror" value="{{ old('nip') }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                     <div class="col-md-6 mb-3">
                         <label for="nidn">NIDN</label>
-                        <input type="number" name="nidn" class="form-control shadow-sm @error('nidn') is-invalid @enderror" value="{{ old('nidn') }}">
+                        <input name="nidn" maxlength="10" minlength="10"
+                        class="form-control shadow-sm @error('nidn') is-invalid @enderror" value="{{ old('nidn') }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                 </div>
@@ -112,7 +120,7 @@
 
                     <div class="col-md-4 mb-3">
                         <label for="tanggal_lahir">Tanggal Lahir</label>
-                        <input type="date" name="tanggal_lahir" class="form-control shadow-sm @error('tanggal_lahir') is-invalid @enderror" value="{{ old('tanggal_lahir') }}">
+                        <input type="date" name="tanggal_lahir" class="form-control shadow-sm @error('tanggal_lahir') is-invalid @enderror" value="{{ old('tanggal_lahir') }}" required>
                     </div>
 
                     <div class="col-md-4">

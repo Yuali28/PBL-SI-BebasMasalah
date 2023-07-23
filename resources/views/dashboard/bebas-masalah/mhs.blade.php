@@ -42,43 +42,26 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col">Lembar Konsultasi 2</div>
                     <div class="col">
-                        <x-adminlte-input-file name="lembar_konsultasi_dospem_2" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_konsultasi_dospem_2 }}" accept="application/pdf"/>
+                        Lembar Konsultasi 2
+                        <span id="previewName4"></span>
+                    </div>
+                    <div class="col">
+                        <x-adminlte-input-file name="lembar_konsultasi_dospem_2" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_konsultasi_dospem_2 }}" accept="application/pdf" onchange="updateFileName()"/>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col">Lembar Revisi</div>
                     <div class="col">
                         <x-adminlte-input-file name="lembar_revisi" legend="Pilih" placeholder="{{ auth()->user()->bebasMasalah->lembar_revisi }}" accept="application/pdf"/>
-                        {{-- <div class="input-group mb-3">
-                            <div class="form-control border-right-0">{{ auth()->user()->bebasMasalah->lembar_revisi }}</div>
-                            <div class="input-group-append">
-                                <button class="btn btn-info bg-info input-group-text"><i class="fas fa-eye"></i></button>
-                                <button class="btn btn-success bg-success input-group-text"><i class="fas fa-pen"></i></button>
-                            </div>
-                        </div> --}}
-                        {{-- <div class="input-group mb-3">
-                            <div class="custom-file">
-                              <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                            </div>
-                            <div class="input-group-append">
-                                <button class="btn btn-info bg-info input-group-text"><i class="fas fa-sync"></i></button>
-                            </div>
-                        </div> --}}
-                        {{-- <x-adminlte-input-file name="lembar_revisi" legend="upload" placeholder="{{ auth()->user()->bebasMasalah->lembar_revisi }}">
-                            <x-slot name="appendSlot">
-                                <div class="input-group-text bg-lightblue">
-                                    <i class="fas fa-sync"></i>
-                                </div>
-                            </x-slot>
-                        </x-adminlte-input-file> --}}
-
                     </div>
                 </div>
                 <div class="row d-flex">
-                    <x-adminlte-button type="submit" class="ml-auto mr-2" label="Simpan" theme="primary"/>
+                    <span class="text-muted ml-2 mb-2">
+                        *Nama file yang diupload akan terubah sendirinya sesuai format penaamaan file. <br/>
+                        *Nama file di kolom hanya akan muncul setelah file berhasil diupload
+                    </span>
+                    <x-adminlte-button type="submit" class="ml-auto mr-2" label="Simpan" icon="fas fa-save" theme="primary"/>
                 </div>
             </form>
         </x-adminlte-card>
@@ -86,6 +69,14 @@
 </div>
 @stop
 
-<script>
-
-</script>
+@section('js')
+    <script>
+        function updateFileName() {
+            for (let i = 1; i < 6; i++) {
+                const input = document.getElementById('fileInput' + i);
+                const label = document.getElementById('previewName' + i);
+                label.innerText = 'Nama file yang dipilih: ' + input.files[0].name;
+            }
+        }
+    </script>
+@endsection

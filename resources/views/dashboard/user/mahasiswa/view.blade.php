@@ -61,4 +61,16 @@ include(base_path('resources/views/dashboard/user/mahasiswa/data.php'));
             e.preventDefault();
         });
     </script>
+
+    <script>
+        function validateNumberInput(event) {
+            const input = event.target;
+            const regex = /^[0-9]*$/; // Regular expression to match numbers only
+
+            if (!regex.test(input.value)) {
+                // Remove non-numeric characters from the input value
+                input.value = input.value.replace(/[^0-9]/g, '');
+            }
+        }
+    </script>
 @stop

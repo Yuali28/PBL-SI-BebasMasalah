@@ -37,7 +37,7 @@
                     <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
-
+{{-- @dd($message) --}}
             @error('username')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
@@ -64,13 +64,13 @@
         </div>
 
         {{-- Password reset link --}}
-        @if($password_reset_url)
+        {{-- @if($password_reset_url)
             <p class="text-right">
                 <a href="{{ $password_reset_url }}">
                     {{ __('adminlte::adminlte.i_forgot_my_password') }}
                 </a>
             </p>
-        @endif
+        @endif --}}
 
         {{-- Login field --}}
         <div class="row">

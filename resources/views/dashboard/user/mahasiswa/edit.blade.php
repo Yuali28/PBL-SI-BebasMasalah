@@ -48,7 +48,7 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md mb-3">
                         <label for="alamat">Alamat</label>
-                        <textarea class="form-control shadow-sm @error('telp') is-invalid @enderror" name="alamat" rows="2">{{ $user->mahasiswa->alamat }}</textarea>
+                        <textarea class="form-control shadow-sm @error('alamat') is-invalid @enderror" name="alamat" rows="2">{{ $user->mahasiswa->alamat }}</textarea>
                     </div>
 
                 </div>
@@ -57,7 +57,9 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-4 mb-3">
                         <label for="telp">No. Telp</label>
-                        <input type="text" name="telp" class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ $user->mahasiswa->telp }}">
+                        <input type="text" name="telp" maxlength="13" minlength="10" placeholder="08xxx"
+                        class="form-control shadow-sm @error('telp') is-invalid @enderror" value="{{ $user->mahasiswa->telp }}"
+                        id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                     <div class="col-md-4 mb-3">
@@ -67,7 +69,10 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-4 mb-3">
                         <label for="tahun_lulus">Tahun Lulus</label>
-                        <input type="number" name="tahun_lulus" class="form-control shadow-sm @error('tahun_lulus') is-invalid @enderror" value="{{ $user->bebasMasalah->tahun_lulus }}">
+                        <input name="tahun_lulus" minlength="4" maxlength="4" placeholder="20xx"
+                        class="form-control shadow-sm @error('tahun_lulus') is-invalid @enderror" value="{{ $user->bebasMasalah->tahun_lulus }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
+
                     </div>
 
                 </div>
@@ -98,7 +103,9 @@ $genderArray = ['Laki-laki', 'Perempuan'];
 
                     <div class="col-md-4 mb-3">
                         <label for="angkatan">Angkatan</label>
-                        <input type="number" name="angkatan" class="form-control shadow-sm @error('angkatan') is-invalid @enderror" value="{{ $user->mahasiswa->angkatan }}">
+                        <input name="angkatan" minlength="4" maxlength="4" placeholder="20xx"
+                        class="form-control shadow-sm @error('angkatan') is-invalid @enderror" value="{{ $user->mahasiswa->angkatan }}"
+                        type="text" id="numberInput" oninput="validateNumberInput(event)">
                     </div>
 
                 </div>
